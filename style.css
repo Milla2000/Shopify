@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins';
+}
+#body{
+    background-color: rgba(34, 152, 203, 0.1);
+}
+.master{
+    background-color: rgba(34, 152, 203, 0.3);
+    margin-top: 15vh;
+    margin-left: 70vh;
+    margin-right: 70vh;
+    border-radius: 2vh;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3vh;
+    padding-bottom: 3vh;
+}
+input{
+    height: 5vh;
+    width: 20vw;
+    border-radius: 1vh;
+    outline: none;
+    border: rgba(34, 152, 203, 1);
+}
+button[type='submit']{
+    border-radius: 1vh;
+    height: 5vh;
+    width: 20vw;
+    background-color: rgba(34, 152, 203, 1);
+    color: rgba(255, 255, 255, 1);
+    border: rgba(34, 152, 203, 1);
+}
+a{
+    color: rgba(34, 152, 203, 1);
+    text-decoration: none;
+}
+.top{
+    background-color: rgba(34, 152, 203, 0.05);
+}
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5vh;
+}
+.button{
+    border-radius: 1vh;
+    height: 5vh;
+    width: 10vw;
+    background-color: rgba(34, 152, 203, 1);
+    color: rgba(255, 255, 255, 1);
+    border: rgba(34, 152, 203, 1);
+}
+.top-display{
+    margin-top: 10vh;
+    display: flex;
+    gap: 30vh;
+    padding: 5vh;
+}
+.caption{
+    width: 40%;
+}
+.actual-products{
+    padding: 5vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10vh;
+}
+.product-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1vh;
+    box-shadow: 10px solid rgba(34, 152, 203, 1) ;
+}
+@media screen and (max-width: 768px){
+    .master{
+        margin-top: 15vh;
+        margin-left: 7vh;
+        margin-right: 7vh;
+    }
+    input{
+        width: 60vw;
+    }
+    button[type='submit']{
+        width: 60vw;
+    }
+}
