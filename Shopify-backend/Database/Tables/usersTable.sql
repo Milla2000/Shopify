@@ -30,5 +30,4 @@ VALUES (
     GETDATE()                 -- Current date and time
 );
 
-SELECT * FROM usersTable;
-```
+-- SELECT * FROM usersTable;

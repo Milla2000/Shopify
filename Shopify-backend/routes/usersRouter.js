@@ -10,8 +10,8 @@ usersRouter.post('/register', registerUser)
 usersRouter.post('/login', userLogin)
 
 
-usersRouter.put('/update/:id', updateUser)
-usersRouter.post('/delete/:id', deleteUser)
+usersRouter.put('/:id', updateUser)
+usersRouter.post('/:id', deleteUser)
 usersRouter.get('/check', verifyToken, checkUser)
 usersRouter.get('/allusers', verifyToken, returnUsers)
 

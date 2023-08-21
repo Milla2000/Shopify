@@ -73,7 +73,7 @@ const userLogin = async (req, res) => {
       return res.status(400).json({ message: "Incorrect password" });
     }
 
-    const { password: _, role, ...payload } = user;
+    const { password: _, id ,  role, ...payload } = user;
     const token = jwt.sign(payload, process.env.SECRET, { expiresIn: "3600s" });
 
     let message = "Logged in";
@@ -82,7 +82,7 @@ const userLogin = async (req, res) => {
       message = "Admin logged in";
     }
 
-    return res.status(200).json({ message, role, token });
+    return res.status(200).json({ message, role, id,  token });
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
