@@ -6,13 +6,11 @@ const loginSchema = joi.object({
 })
 
 const registerSchema = joi.object({
-    full_name : joi.string().required().min(5).max(20).messages({
-        'string.min': "name must have atleast 5 characters"
-    }),
-    email :joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
-    profile: joi.string(),
-    password: joi.string()
-    .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$'))
+    //  username, email, password, phone_number 
+    username: joi.string().min(5).required(),
+    email: joi.string().email().required(),
+    password: joi.string().min(8).required(),
+    phone_number: joi.string().required()
 })
 
 module.exports = {

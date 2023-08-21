@@ -1,5 +1,5 @@
 CREATE TABLE cartItemsTable (
-    id INT PRIMARY KEY IDENTITY,
+    id VARCHAR(200) PRIMARY KEY,
     cart_id INT NOT NULL,
     product_id INT NOT NULL,
     product_name VARCHAR(255), -- Add product_name column
