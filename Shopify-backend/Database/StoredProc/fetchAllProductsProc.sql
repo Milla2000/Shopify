@@ -1,0 +1,4 @@
+CREATE OR ALTER PROCEDURE fetchAllProjectsProc
+AS
+BEGIN SELECT * FROM productsTable 
+END

@@ -1,0 +1,90 @@
+#create a PRODUCT
+POST http://localhost:4500/products
+Content-Type: application/json
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMxZTZhM2JkLWIzNjgtNGFiOS04NjgxLWQ2ZGJkNjU5N2RlYSIsImZ1bGxfbmFtZSI6IkVsaXVkIE1hc3VuIiwiZW1haWwiOiJyeW5hcmRyb25peEBnbWFpbC5jb20iLCJhc3NpZ25lZFByb2plY3QiOm51bGwsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjkxMzkzNDc3LCJleHAiOjE2OTEzOTcwNzd9.mJQXGGtw63KmFNhRlQUi6oba1hlw9byFhTOQdb-z8uY
+# name, description, price, category, image, num_items
+{
+    "name": "Sing some more",
+    "description": "It works, don’t touch!",
+    "price": "2023/8/5",
+    "category": "2023/8/5",
+    "image": "2023/8/5",
+    "num_items": "2023/8/5"
+}
+
+
+
+### GET ALL PRODUCTS
+GET http://localhost:4500/products
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVkNTNkMWYzLTUyNDItNDIwYi1iZjQyLTAyMzA0NmExZDhhOSIsImZ1bGxfbmFtZSI6InNpbG9tYSBzaWxvbWEiLCJlbWFpbCI6InNpbG9tYUBnbWFpbC5jb20iLCJhc3NpZ25lZFByb2plY3QiOm51bGwsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjkwOTkzMDIyLCJleHAiOjE2OTA5OTY2MjJ9.h_vNmdviK45XyKwAm9bwsbg1bc8IxiAS8iO1wLB_M-8
+
+
+### GET ONE PRODUCTS
+GET http://localhost:4500/products/0b3a8000-3557-4ebb-bf4b-2a660c02f41d
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRiMjIzZjMxLTA1ZTYtNDU3Ny05NjU5LTU1MjNjNWM4ZTI2MyIsImZ1bGxfbmFtZSI6Ik1pbGxhIEplc3NvIiwiZW1haWwiOiJtaWxsYUBnbWFpbC5jb20iLCJhc3NpZ25lZFByb2plY3QiOm51bGwsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjkxMDk0NDg3LCJleHAiOjE2OTEwOTgwODd9.CsVl8qiUIZNnPQJHoB4GSGHUnRwzx5UhBkxt5OgP6HI
+
+### UPDATING PROJECT
+PUT http://localhost:4500/products/0b3a8000-3557-4ebb-bf4b-2a660c02f41d
+Content-Type: application/json
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRiMjIzZjMxLTA1ZTYtNDU3Ny05NjU5LTU1MjNjNWM4ZTI2MyIsImZ1bGxfbmFtZSI6Ik1pbGxhIEplc3NvIiwiZW1haWwiOiJtaWxsYUBnbWFpbC5jb20iLCJhc3NpZ25lZFByb2plY3QiOm51bGwsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjkxMDk0NDg3LCJleHAiOjE2OTEwOTgwODd9.CsVl8qiUIZNnPQJHoB4GSGHUnRwzx5UhBkxt5OgP6HI
+
+{
+    "name": "Sing some more",
+    "description": "It works, don’t touch!",
+    "price": "2023/8/5",
+    "category": "2023/8/5",
+    "image": "2023/8/5",
+    "num_items": "2023/8/5"
+}
+
+###delete
+DELETE http://localhost:4500/products/00e7d3cf-2031-4b35-bdc7-1fed12541c77
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVkNTNkMWYzLTUyNDItNDIwYi1iZjQyLTAyMzA0NmExZDhhOSIsImZ1bGxfbmFtZSI6InNpbG9tYSBzaWxvbWEiLCJlbWFpbCI6InNpbG9tYUBnbWFpbC5jb20iLCJhc3NpZ25lZFByb2plY3QiOm51bGwsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjkwOTkzMDIyLCJleHAiOjE2OTA5OTY2MjJ9.h_vNmdviK45XyKwAm9bwsbg1bc8IxiAS8iO1wLB_M-8
+
+
+###assign project
+PUT http://localhost:4500/users/assign
+Content-Type: application/json
+
+{
+    "project_id": "53543c52-4e36-4ec9-ac80-7c70a9c9cfbe",
+    "user_id": "a5907d51-f0d0-425e-b601-872d48d53a04"    
+}
+
+
+###complete project
+POST http://localhost:4500/users/complete
+Content-Type: application/json
+
+{
+    "project_id": "0b3a8000-3557-4ebb-bf4b-2a660c02f41d",
+    "user_id": "a5907d51-f0d0-425e-b601-872d48d53a04"    
+}
+
+### register
+POST  http://localhost:4500/users/register
+Content-Type: application/json
+
+{
+    "full_name": "Johgnh Jesso",
+    "email":"johnJgessko@gmail.com",
+    "password":"12345678"
+}
+
+
+### login
+POST  http://localhost:4500/users/login
+Content-Type: application/json
+
+{
+    "email":"johnJessko@gmail.com",
+    "password":"12345678"
+}
+
+###
+GET http://localhost:4500/users/check
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVkNTNkMWYzLTUyNDItNDIwYi1iZjQyLTAyMzA0NmExZDhhOSIsImZ1bGxfbmFtZSI6Ik1pbGxhIFdhY2hpcmEgU2lsb21hIiwiZW1haWwiOiJpZ25pdDNncmFwaGljc0BnbWFpbC5jb20iLCJhc3NpZ25lZFByb2plY3QiOm51bGwsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY5MTY2MDM0OCwiZXhwIjoxNjkxNjYzOTQ4fQ.LXJkVJhFNpGESbG79zli1_uPcUGLRTzVLzbZ53H-cEg
+
+###  
+GET http://localhost:4500/users/allusers
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVkNTNkMWYzLTUyNDItNDIwYi1iZjQyLTAyMzA0NmExZDhhOSIsImZ1bGxfbmFtZSI6Ik1pbGxhIFdhY2hpcmEgU2lsb21hIiwiZW1haWwiOiJpZ25pdDNncmFwaGljc0BnbWFpbC5jb20iLCJhc3NpZ25lZFByb2plY3QiOm51bGwsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY5MTY2MDM0OCwiZXhwIjoxNjkxNjYzOTQ4fQ.LXJkVJhFNpGESbG79zli1_uPcUGLRTzVLzbZ53H-cEg
