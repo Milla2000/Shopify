@@ -1,46 +1,41 @@
 const {v4} = require('uuid');
 const mssql = require ('mssql');
-// const { createProjectsTable } = require('../Database/Tables/createTables');
 const { sqlConfig } = require('../config/config');
+const { createProductsTable } = require('../Database/Tables/createTables');
 // const { hereIsYourNewProject } = require('../EmailService/newUser');
-
 
 const createNewProduct = async (req, res) => {
   try {
-    createProductsTable();
-
     const id = v4();
     const currentTime = new Date();
     const { name, description, price, category, image, num_items } = req.body;
-
     const pool = await mssql.connect(sqlConfig);
 
-    if (pool.connected) {
-      const result = await pool
-        .request()
-        .input("id", mssql.VarChar, id)
-        .input("name", mssql.VarChar, name)
-        .input("description", mssql.VarChar, description)
-        .input("price", mssql.Decimal, price)
-        .input("category", mssql.VarChar, category)
-        .input("image", mssql.VarChar, image)
-        .input("num_items", mssql.Int, num_items)
-        .input("created_at", mssql.DateTime, currentTime)
-        .input("updated_at", mssql.DateTime, currentTime)
-        .execute("createProductProc");
-
-      if (result.rowsAffected[0] === 1) {
-        return res.json({
-          message: "Product created successfully",
-        });
-      } else {
-        return res.json({ message: "Product creation failed" });
-      }
+    const result = await pool
+      .request()
+      .input("id", mssql.VarChar, id)
+      .input("name", mssql.VarChar, name)
+      .input("description", mssql.Text, description)
+      .input("price", mssql.Decimal(10, 2), price) 
+      .input("category", mssql.VarChar, category)
+      .input("image", mssql.VarChar, image)
+      .input("num_items", mssql.Int, num_items)
+      .input("created_at", mssql.Date, currentTime)
+      .input("updated_at", mssql.Date, currentTime)
+      .execute("createProductProc");
+   console.log(result);
+    if (result.rowsAffected[0] === 1) {
+      return res.json({
+        message: "Product created successfully",
+      });
+    } else {
+      return res.json({ message: "Product creation failed" });
     }
   } catch (error) {
-    return res.json({ error });
+    return res.json({ error: error.message });
   }
 };
+
 
 
 
@@ -99,7 +94,7 @@ const updateProduct = async (req, res) => {
     const currentTime = new Date();
     const result = await pool
       .request()
-      .input("id", mssql.Int, id)
+      .input("id", mssql.VarChar, id)  // Change to mssql.VarChar
       .input("name", mssql.VarChar, name)
       .input("description", mssql.VarChar, description)
       .input("price", mssql.Decimal, price)
@@ -111,19 +106,20 @@ const updateProduct = async (req, res) => {
 
     console.log(result);
 
-    if (result.rowsAffected[0] == 1) {
+    if (result.rowsAffected[0] === 1) {
       res.json({
         message: "Product updated successfully",
       });
     } else {
       res.json({
-        message: "Product not found",
+        message: "Product not found or update failed",
       });
     }
   } catch (error) {
-    return res.json({ error });
+    return res.json({ error: error.message });
   }
 };
+
 
 
 //delete product controller

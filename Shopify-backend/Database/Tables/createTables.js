@@ -39,23 +39,22 @@ const createUsersTable = async () => {
 const createProductsTable = async () => {
   try {
     const table = `
-         BEGIN
-        TRY
-            CREATE TABLE users (
-                id INT PRIMARY KEY IDENTITY,
-                username VARCHAR(50) NOT NULL UNIQUE,
-                email VARCHAR(100) NOT NULL UNIQUE,
-                password VARCHAR(255) NOT NULL,
-                role VARCHAR(20) NOT NULL,
-                created_at DATETIME DEFAULT GETDATE(),
-                updated_at DATETIME,
-                cart_id INT,
-                CONSTRAINT FK_UserCart FOREIGN KEY (cart_id) REFERENCES cartsTable(id)
-            );
-        END TRY
-        BEGIN CATCH
-            THROW 50002, 'Table already exists', 1;
-        END CATCH`;
+         BEGIN TRY
+    CREATE TABLE productsTable (
+        id VARCHAR(200) PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        description TEXT,
+        price DECIMAL(10, 2) NOT NULL,
+        category VARCHAR(100),
+        image VARCHAR(255),
+        num_items INT NOT NULL DEFAULT 0,
+        created_at DATETIME DEFAULT GETDATE(),
+        updated_at DATETIME
+    );
+END TRY
+BEGIN CATCH
+    THROW 50001, 'Table already exists!', 1;
+END CATCH;`;
 
     const pool = await mssql.connect(sqlConfig);
 

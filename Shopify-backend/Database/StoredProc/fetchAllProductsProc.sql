@@ -1,4 +1,4 @@
-CREATE OR ALTER PROCEDURE fetchAllProjectsProc
+CREATE OR ALTER PROCEDURE fetchAllProductsProc
 AS
 BEGIN SELECT * FROM productsTable 
 END

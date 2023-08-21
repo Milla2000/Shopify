@@ -10,9 +10,10 @@ CREATE OR ALTER PROCEDURE createProductProc
     @updated_at DATETIME
 AS
 BEGIN
-    INSERT INTO products (id, name, description, price, category, image, num_items, created_at, updated_at)
+    INSERT INTO productsTable (id, name, description, price, category, image, num_items, created_at, updated_at)
     VALUES (@id, @name, @description, @price, @category, @image, @num_items, @created_at, @updated_at);
 END;
+
 
 
 SELECT * FROM products

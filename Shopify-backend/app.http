@@ -1,33 +1,33 @@
 #create a PRODUCT
 POST http://localhost:4500/products
 Content-Type: application/json
-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMxZTZhM2JkLWIzNjgtNGFiOS04NjgxLWQ2ZGJkNjU5N2RlYSIsImZ1bGxfbmFtZSI6IkVsaXVkIE1hc3VuIiwiZW1haWwiOiJyeW5hcmRyb25peEBnbWFpbC5jb20iLCJhc3NpZ25lZFByb2plY3QiOm51bGwsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjkxMzkzNDc3LCJleHAiOjE2OTEzOTcwNzd9.mJQXGGtw63KmFNhRlQUi6oba1hlw9byFhTOQdb-z8uY
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2ODIxNDRlLTZiY2MtNDE3Yi04YzQ5LWQzZTY4OWFhYzA5NiIsInVzZXJuYW1lIjoiSm9oZ25oIiwiZW1haWwiOiJqb2huSmdlc3Nrb0BnbWFpbC5jb20iLCJwaG9uZV9udW1iZXIiOiIxMjM0NTY3OCIsImNyZWF0ZWRfYXQiOiIyMDIzLTA4LTIxVDExOjUzOjI4LjUxN1oiLCJ1cGRhdGVkX2F0IjpudWxsLCJjYXJ0X2lkIjpudWxsLCJpYXQiOjE2OTI2MDg5NTAsImV4cCI6MTY5MjYxMjU1MH0.6lDSnhAw1fBJX2qDtsXRNHvTJpEoWXNxLo6__-iJ-tM
 
 # name, description, price, category, image, num_items
 {
-    "name": "Sing some more",
-    "description": "It works, don’t touch!",
+    "name": "Singsrfb some more",
+    "description": "It ndgcvworks, don’t touch!",
     "price": "2023/8/5",
     "category": "2023/8/5",
     "image": "2023/8/5",
-    "num_items": "2023/8/5"
+    "num_items": "2023"
 }
 
 
 
 ### GET ALL PRODUCTS
 GET http://localhost:4500/products
-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVkNTNkMWYzLTUyNDItNDIwYi1iZjQyLTAyMzA0NmExZDhhOSIsImZ1bGxfbmFtZSI6InNpbG9tYSBzaWxvbWEiLCJlbWFpbCI6InNpbG9tYUBnbWFpbC5jb20iLCJhc3NpZ25lZFByb2plY3QiOm51bGwsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjkwOTkzMDIyLCJleHAiOjE2OTA5OTY2MjJ9.h_vNmdviK45XyKwAm9bwsbg1bc8IxiAS8iO1wLB_M-8
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2ODIxNDRlLTZiY2MtNDE3Yi04YzQ5LWQzZTY4OWFhYzA5NiIsInVzZXJuYW1lIjoiSm9oZ25oIiwiZW1haWwiOiJqb2huSmdlc3Nrb0BnbWFpbC5jb20iLCJwaG9uZV9udW1iZXIiOiIxMjM0NTY3OCIsImNyZWF0ZWRfYXQiOiIyMDIzLTA4LTIxVDExOjUzOjI4LjUxN1oiLCJ1cGRhdGVkX2F0IjpudWxsLCJjYXJ0X2lkIjpudWxsLCJpYXQiOjE2OTI2MDg5NTAsImV4cCI6MTY5MjYxMjU1MH0.6lDSnhAw1fBJX2qDtsXRNHvTJpEoWXNxLo6__-iJ-tM
 
 
 ### GET ONE PRODUCTS
-GET http://localhost:4500/products/0b3a8000-3557-4ebb-bf4b-2a660c02f41d
+GET http://localhost:4500/products/440cc27e-7cd6-49e5-a60e-c5d125db3d34
 token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRiMjIzZjMxLTA1ZTYtNDU3Ny05NjU5LTU1MjNjNWM4ZTI2MyIsImZ1bGxfbmFtZSI6Ik1pbGxhIEplc3NvIiwiZW1haWwiOiJtaWxsYUBnbWFpbC5jb20iLCJhc3NpZ25lZFByb2plY3QiOm51bGwsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjkxMDk0NDg3LCJleHAiOjE2OTEwOTgwODd9.CsVl8qiUIZNnPQJHoB4GSGHUnRwzx5UhBkxt5OgP6HI
 
-### UPDATING PROJECT
-PUT http://localhost:4500/products/0b3a8000-3557-4ebb-bf4b-2a660c02f41d
+### UPDATING PRODUCT
+PUT http://localhost:4500/products/440cc27e-7cd6-49e5-a60e-c5d125db3d34
 Content-Type: application/json
-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRiMjIzZjMxLTA1ZTYtNDU3Ny05NjU5LTU1MjNjNWM4ZTI2MyIsImZ1bGxfbmFtZSI6Ik1pbGxhIEplc3NvIiwiZW1haWwiOiJtaWxsYUBnbWFpbC5jb20iLCJhc3NpZ25lZFByb2plY3QiOm51bGwsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjkxMDk0NDg3LCJleHAiOjE2OTEwOTgwODd9.CsVl8qiUIZNnPQJHoB4GSGHUnRwzx5UhBkxt5OgP6HI
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2ODIxNDRlLTZiY2MtNDE3Yi04YzQ5LWQzZTY4OWFhYzA5NiIsInVzZXJuYW1lIjoiSm9oZ25oIiwiZW1haWwiOiJqb2huSmdlc3Nrb0BnbWFpbC5jb20iLCJwaG9uZV9udW1iZXIiOiIxMjM0NTY3OCIsImNyZWF0ZWRfYXQiOiIyMDIzLTA4LTIxVDExOjUzOjI4LjUxN1oiLCJ1cGRhdGVkX2F0IjpudWxsLCJjYXJ0X2lkIjpudWxsLCJpYXQiOjE2OTI2MDg5NTAsImV4cCI6MTY5MjYxMjU1MH0.6lDSnhAw1fBJX2qDtsXRNHvTJpEoWXNxLo6__-iJ-tM
 
 {
     "name": "Sing some more",
@@ -35,32 +35,33 @@ token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRiMjIzZjMxLTA1ZTYtNDU3Ny05N
     "price": "2023/8/5",
     "category": "electricals",
     "image": "2023/8/5",
-    "num_items": "2023/8/5"
+    "num_items": "2023"
+
 }
 
-###delete
-DELETE http://localhost:4500/products/00e7d3cf-2031-4b35-bdc7-1fed12541c77
-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVkNTNkMWYzLTUyNDItNDIwYi1iZjQyLTAyMzA0NmExZDhhOSIsImZ1bGxfbmFtZSI6InNpbG9tYSBzaWxvbWEiLCJlbWFpbCI6InNpbG9tYUBnbWFpbC5jb20iLCJhc3NpZ25lZFByb2plY3QiOm51bGwsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjkwOTkzMDIyLCJleHAiOjE2OTA5OTY2MjJ9.h_vNmdviK45XyKwAm9bwsbg1bc8IxiAS8iO1wLB_M-8
+###delete product
+DELETE http://localhost:4500/products/440cc27e-7cd6-49e5-a60e-c5d125db3d34
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2ODIxNDRlLTZiY2MtNDE3Yi04YzQ5LWQzZTY4OWFhYzA5NiIsInVzZXJuYW1lIjoiSm9oZ25oIiwiZW1haWwiOiJqb2huSmdlc3Nrb0BnbWFpbC5jb20iLCJwaG9uZV9udW1iZXIiOiIxMjM0NTY3OCIsImNyZWF0ZWRfYXQiOiIyMDIzLTA4LTIxVDExOjUzOjI4LjUxN1oiLCJ1cGRhdGVkX2F0IjpudWxsLCJjYXJ0X2lkIjpudWxsLCJpYXQiOjE2OTI2MDg5NTAsImV4cCI6MTY5MjYxMjU1MH0.6lDSnhAw1fBJX2qDtsXRNHvTJpEoWXNxLo6__-iJ-tM
 
 
 ###assign project
-PUT http://localhost:4500/users/assign
-Content-Type: application/json
+# PUT http://localhost:4500/users/assign
+# Content-Type: application/json
 
-{
-    "project_id": "53543c52-4e36-4ec9-ac80-7c70a9c9cfbe",
-    "user_id": "a5907d51-f0d0-425e-b601-872d48d53a04"    
-}
+# {
+#     "project_id": "53543c52-4e36-4ec9-ac80-7c70a9c9cfbe",
+#     "user_id": "a5907d51-f0d0-425e-b601-872d48d53a04"    
+# }
 
 
 ###complete project
-POST http://localhost:4500/users/complete
-Content-Type: application/json
+# POST http://localhost:4500/users/complete
+# Content-Type: application/json
 
-{
-    "project_id": "0b3a8000-3557-4ebb-bf4b-2a660c02f41d",
-    "user_id": "a5907d51-f0d0-425e-b601-872d48d53a04"    
-}
+# {
+#     "project_id": "0b3a8000-3557-4ebb-bf4b-2a660c02f41d",
+#     "user_id": "a5907d51-f0d0-425e-b601-872d48d53a04"    
+# }
 
 ### register
 POST  http://localhost:4500/users/register
@@ -68,8 +69,8 @@ Content-Type: application/json
 
 {
    
-    "username": "Johgnh",
-    "email":"johnJgessko@gmail.com",
+    "username": "Johkgnh",
+    "email":"johnJkgessko@gmail.com",
     "password":"12345678",
     "phone_number": "12345678"
 }
