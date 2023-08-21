@@ -47,23 +47,25 @@ token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2ODIxNDRlLTZiY2MtNDE3Yi04Y
 ###dd product to cart
 POST http://localhost:4500/cart/add-to-cart
 Content-Type: application/json
-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkpvaGduaCIsImVtYWlsIjoiam9obkpnZXNza29AZ21haWwuY29tIiwicGhvbmVfbnVtYmVyIjoiMTIzNDU2NzgiLCJjcmVhdGVkX2F0IjoiMjAyMy0wOC0yMVQxMTo1MzoyOC41MTdaIiwidXBkYXRlZF9hdCI6bnVsbCwiY2FydF9pZCI6bnVsbCwiaWF0IjoxNjkyNjE5NTg0LCJleHAiOjE2OTI2MjMxODR9.r8rzBqDwubXBxF6w2iqTk26DnzQ5BInOpUlP-ave7vo
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRhbmllbCIsImVtYWlsIjoiZGFuaWVsQGdtYWlsLmNvbSIsInBob25lX251bWJlciI6IjEyMzQ1Njc4IiwiY3JlYXRlZF9hdCI6IjIwMjMtMDgtMjFUMTc6MzM6NTMuMzAwWiIsInVwZGF0ZWRfYXQiOm51bGwsImNhcnRfaWQiOm51bGwsImlhdCI6MTY5MjYzMDAzMywiZXhwIjoxNjkyNjMzNjMzfQ.Mc6LzKt0dLKXzARlGBKxPOLc0ECNbhllM6d-58HRGRY
 
 {
-  "user_id": "1682144e-6bcc-417b-8c49-d3e689aac096",
-  "product_id": "13851d47-64d4-497e-8d4e-6445b1509583"
+  "user_id": "b8c35407-fd3d-492b-9685-a5608efde21d",
+  "product_id": "39a9efd2-d9d5-4432-ac48-0c5b89631b70"
        
 }
 
 
-## complete project
-POST http://localhost:4500/cart/cart-items
-Content-Type: application/json
 
-{
-    "project_id": "0b3a8000-3557-4ebb-bf4b-2a660c02f41d",
-    "user_id": "a5907d51-f0d0-425e-b601-872d48d53a04"    
-}
+### complete project
+# POST http://localhost:4500/cart/complete
+# Content-Type: application/json
+
+# {
+#     "project_id": "0b3a8000-3557-4ebb-bf4b-2a660c02f41d",
+#     "user_id": "a5907d51-f0d0-425e-b601-872d48d53a04"    
+# }
+
 
 ### register
 POST  http://localhost:4500/users/register
@@ -71,8 +73,8 @@ Content-Type: application/json
 
 {
    
-    "username": "Johkgnh",
-    "email":"johnJkgessko@gmail.com",
+    "username": "daniels",
+    "email":"daniely@gmail.com",
     "password":"12345678",
     "phone_number": "12345678"
 }
@@ -83,7 +85,7 @@ POST  http://localhost:4500/users/login
 Content-Type: application/json
 
 {
-    "email":"johnJgessko@gmail.com",
+    "email":"daniel@gmail.com",
     "password":"12345678"
 }
 

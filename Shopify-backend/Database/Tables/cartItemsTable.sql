@@ -9,3 +9,7 @@ CREATE TABLE cartItemsTable (
     FOREIGN KEY (cart_id) REFERENCES cartsTable(id),
     FOREIGN KEY (product_id) REFERENCES productsTable(id)
 );
+
+SELECT * FROM cartItemsTable;
+
+DELETE FROM cartItemsTable;
