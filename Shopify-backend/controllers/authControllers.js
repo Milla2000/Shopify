@@ -7,6 +7,8 @@ const { registerSchema, loginSchema } = require("../validators/validators");
 const dotenv = require("dotenv");
 dotenv.config();
 
+
+
 const registerUser = async (req, res) => {
   try {
     const id = v4();
