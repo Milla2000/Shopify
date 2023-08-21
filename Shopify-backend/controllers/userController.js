@@ -1,6 +1,6 @@
 const mssql = require ('mssql');
 const { sqlConfig } = require('../config/config');
-const { projectCompleteNotifier } = require('../EmailService/newUser');
+// const { projectCompleteNotifier } = require('../EmailService/newUser');
 
 
 const returnUsers = async(req,res)=>{

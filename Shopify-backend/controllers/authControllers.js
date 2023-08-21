@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const { v4 } = require("uuid");
 const { sqlConfig } = require("../config/config");
 const { registerSchema, loginSchema } = require("../validators/validators");
+const dotenv = require("dotenv");
 dotenv.config();
 
 const registerUser = async (req, res) => {

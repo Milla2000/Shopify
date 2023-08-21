@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require ('cors')
 
-const { welcomeAboard } = require('./EmailService/newUser');
+// const { welcomeAboard } = require('./EmailService/newUser');
 const cron = require('node-cron');
 const { shopifyRouter } = require('./routes/productRoutes');
 const { cartRouter } = require('./routes/cartRoutes');
