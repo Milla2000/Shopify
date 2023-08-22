@@ -8,12 +8,15 @@ BEGIN TRY
         phone_number VARCHAR(20),
         created_at DATETIME DEFAULT GETDATE(),
         updated_at DATETIME,
-        cart_id INT
+        cart_id INT,
+        resetToken VARCHAR(200), -- Add this column for reset tokens
+        resetTokenExpiry DATETIME -- Add this column for reset token expiry
     );
 END TRY
 BEGIN CATCH
     THROW 50001, 'Table already exists!', 1;
 END CATCH;
+
 
 DROP TABLE IF EXISTS usersTable;
 
