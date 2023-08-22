@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const { registerUser, userLogin, checkUser } = require('../controllers/authControllers');
 
-const { returnUsers, updateUser, deleteUser } = require('../controllers/userController');
+const { returnUsers, updateUser, deleteUser, softDeleteUser } = require('../controllers/userController');
 const { verifyToken } = require('../middleware/verifyToken');
 const usersRouter = Router()
 
@@ -11,7 +11,8 @@ usersRouter.post('/login', userLogin)
 
 
 usersRouter.put('/:id', updateUser)
-usersRouter.post('/:id', deleteUser)
+usersRouter.delete('/permanentdelete/:id', deleteUser)
+usersRouter.delete('/softdelete/:id', softDeleteUser) 
 usersRouter.get('/check', verifyToken, checkUser)
 usersRouter.get('/allusers', verifyToken, returnUsers)
 

@@ -14,6 +14,24 @@ const addToCartAndCalculateTotal = async (req, res) => {
 
         const pool = await mssql.connect(sqlConfig);
 
+        // Check if the user exists
+        const userCheck = await pool.request()
+            .input("user_id", mssql.VarChar, user_id)
+            .query("SELECT id FROM usersTable WHERE id = @user_id");
+
+        if (userCheck.recordset.length === 0) {
+            return res.status(404).json({ error: "User not found" });
+        }
+
+        // Check if the product exists
+        const productCheck = await pool.request()
+            .input("product_id", mssql.VarChar, product_id)
+            .query("SELECT id FROM productsTable WHERE id = @product_id");
+
+        if (productCheck.recordset.length === 0) {
+            return res.status(404).json({ error: "Product not found" });
+        }
+
         // Check if a cart exists for the user
         const existingCart = await pool.request()
             .input("user_id", mssql.VarChar, user_id)
@@ -70,13 +88,13 @@ const addToCartAndCalculateTotal = async (req, res) => {
 
 
 
-
 const getCartItems = async (req, res) => {
     try {
-        const userId = req.user.id; // Assuming you have user information in req.user
-        // console.log(userId);
+        // const userId = req.user.id; // Assuming you have user information in req.user
+        const { userId } = req.body;
+        console.log(userId);
         const pool = await mssql.connect(sqlConfig);
-
+       
         const cartItems = await pool
             .request()
             .input("user_id", mssql.VarChar, userId)
@@ -85,6 +103,7 @@ const getCartItems = async (req, res) => {
         res.json({
             cartItems: cartItems.recordset
         });
+        console.log(cartItems.recordset);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }

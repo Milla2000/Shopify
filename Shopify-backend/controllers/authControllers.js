@@ -31,7 +31,7 @@ const registerUser = async (req, res) => {
       .input("username", mssql.VarChar, username)
       .input("email", mssql.VarChar, email)
       .input("password", mssql.VarChar, hashedPwd)
-      .input("phone_number", mssql.VarChar, phone_number)
+      .input("phone_number", mssql.Int, phone_number)
       .execute("registerUserProc");
 
     if (result.rowsAffected[0] == 1) {
@@ -73,16 +73,16 @@ const userLogin = async (req, res) => {
       return res.status(400).json({ message: "Incorrect password" });
     }
 
-    const { password: _, id ,  role, ...payload } = user;
+    const {  id ,  role, ...payload } = user;
     const token = jwt.sign(payload, process.env.SECRET, { expiresIn: "3600s" });
 
     let message = "Logged in";
 
-    if (role === "admin") {
+    if (user.role === "admin") {
       message = "Admin logged in";
     }
 
-    return res.status(200).json({ message, role, id,  token });
+    return res.status(200).json({ id , role,  message,  token });
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }

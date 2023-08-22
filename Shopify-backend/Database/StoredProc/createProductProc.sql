@@ -5,13 +5,12 @@ CREATE OR ALTER PROCEDURE createProductProc
     @price DECIMAL(10, 2),
     @category VARCHAR(100),
     @image VARCHAR(255),
-    @num_items INT,
-    @created_at DATETIME,
-    @updated_at DATETIME
+    @num_items INT
+    
 AS
 BEGIN
-    INSERT INTO productsTable (id, name, description, price, category, image, num_items, created_at, updated_at)
-    VALUES (@id, @name, @description, @price, @category, @image, @num_items, @created_at, @updated_at);
+    INSERT INTO productsTable (id, name, description, price, category, image, num_items, created_at)
+    VALUES (@id, @name, @description, @price, @category, @image, @num_items, GETDATE());
 END;
 
 

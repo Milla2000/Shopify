@@ -17,3 +17,5 @@ BEGIN CATCH
 END CATCH;
 
 DROP TABLE IF EXISTS productsTable;
+
+SELECT * FROM productsTable;

@@ -1,19 +1,20 @@
 const ejs = require("ejs");
 const mssql = require("mssql");
+const bcrypt = require("bcrypt");
 const { sendMail } = require("../Helpers/email");
 const { sqlConfig } = require("../config/config");
 const { v4 } = require("uuid");
+
 // const { json } = require("express");
 
-const ejs = require("ejs");
-const mssql = require("mssql");
-const { sqlConfig } = require("../config/config");
+
 
 const resetPasswordController = {
-    sendPasswordResetEmail: async (email) => {
+    sendPasswordResetEmail: async (req , res) => {
         try {
+            const { email } = req.body;
             const pool = await mssql.connect(sqlConfig);
-
+             console.log("email", email);
             if (pool.connected) {
                 // Generate a unique reset token using UUID
                 const resetToken = v4(); // Use UUID library to generate a UUID
@@ -22,21 +23,21 @@ const resetPasswordController = {
                     await pool
                         .request()
                         .input("email", email)
-                        .query("SELECT id, full_name FROM usersTable WHERE email = @email")
+                        .query("SELECT id, username FROM usersTable WHERE email = @email")
                 ).recordset[0];
 
                 if (!user) {
                     console.log("User not found");
-                    return;
+                    return res.status(404).json({ message: "User not found" });
                 }
 
                 ejs.renderFile(
                     "./Templates/resetPassword.ejs",
-                    { resetToken },
+                    { resetToken, email },
                     async (err, html) => {
                         if (err) {
                             console.log("Error rendering email template:", err);
-                            return;
+                            return res.status(500).json({ error: "Error rendering email template" });
                         }
 
                         const message = {
@@ -65,14 +66,17 @@ const resetPasswordController = {
                                 );
                         } catch (error) {
                             console.log("Error sending email:", error);
+                            return res.status(500).json({ error: "Error sending email" });
                         }
                     }
                 );
             } else {
                 console.log("Not connected to the database");
+                return res.status(500).json({ error: "Database connection failed" });
             }
         } catch (error) {
             console.log("Error:", error);
+            return res.status(500).json({ error: "An error occurred" });
         }
     },
 
@@ -82,17 +86,32 @@ const resetPasswordController = {
 
             const pool = await mssql.connect(sqlConfig);
 
+            // Check if the reset token is still valid
+            const user = await pool.request()
+                .input("resetToken", resetToken)
+                .query("SELECT id, resetTokenExpiry FROM usersTable WHERE resetToken = @resetToken");
+
+            if (!user.recordset[0]) {
+                return res.status(400).json({ error: "Invalid token" });
+            }
+
+            const resetTokenExpiry = new Date(user.recordset[0].resetTokenExpiry);
+
+            if (resetTokenExpiry <= new Date()) {
+                return res.status(400).json({ error: "Token has expired" });
+            }
+            const hashedPwd = await bcrypt.hash(newPassword, 5);
             // Update user's password and resetToken related fields in the database
             await pool.request()
                 .input("resetToken", resetToken)
-                .input("newPassword", newPassword)
+                .input("newPassword", hashedPwd)
                 .query(
                     "UPDATE usersTable SET password = @newPassword, resetToken = NULL, resetTokenExpiry = NULL WHERE resetToken = @resetToken"
                 );
 
             // Password reset successful
             res.status(200).json({ message: "Password reset successful" });
-        }  catch (error) {
+        } catch (error) {
             console.log("Error:", error);
             res.status(500).json({ message: "An error occurred" });
         }

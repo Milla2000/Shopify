@@ -1,22 +1,22 @@
-CREATE OR ALTER PROCEDURE updateProductProc (
-    @id VARCHAR(200), -- Change to VARCHAR(200)
-    @name VARCHAR(255),
-    @description TEXT,
-    @price DECIMAL(10, 2),
-    @category VARCHAR(100),
-    @image VARCHAR(255),
-    @num_items INT,
-    @updated_at DATETIME
+CREATE OR ALTER PROCEDURE updateUserProc (
+    @id VARCHAR(200),
+    @username VARCHAR(50),
+    @email VARCHAR(100),
+    @phone_number INT
 )
 AS
 BEGIN
-    UPDATE productsTable
-    SET name = @name,
-        description = @description,
-        price = @price,
-        category = @category,
-        image = @image,
-        num_items = @num_items,
-        updated_at = @updated_at
-    WHERE id = @id;
+    BEGIN TRY
+        -- Update user details
+        UPDATE usersTable
+        SET
+            username = @username,
+            email = @email,
+            phone_number = @phone_number,
+            updated_at = GETDATE()
+        WHERE id = @id;
+    END TRY
+    BEGIN CATCH
+        THROW;
+    END CATCH;
 END;
