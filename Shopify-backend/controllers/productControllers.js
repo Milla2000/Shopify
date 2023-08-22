@@ -7,7 +7,7 @@ const { createProductsTable } = require('../Database/Tables/createTables');
 const createNewProduct = async (req, res) => {
   try {
     const id = v4();
-    const currentTime = new Date();
+    // const currentTime = new Date();
     const { name, description, price, category, image, num_items } = req.body;
     const pool = await mssql.connect(sqlConfig);
 
@@ -20,8 +20,6 @@ const createNewProduct = async (req, res) => {
       .input("category", mssql.VarChar, category)
       .input("image", mssql.VarChar, image)
       .input("num_items", mssql.Int, num_items)
-      .input("created_at", mssql.Date, currentTime)
-      .input("updated_at", mssql.Date, currentTime)
       .execute("createProductProc");
    console.log(result);
     if (result.rowsAffected[0] === 1) {
@@ -32,7 +30,6 @@ const createNewProduct = async (req, res) => {
       return res.json({ message: "Product creation failed" });
     }
   } catch (error) {
-    console.log(error);
     return res.json({ error: error.message });
   }
 };
@@ -102,7 +99,6 @@ const updateProduct = async (req, res) => {
       .input("category", mssql.VarChar, category)
       .input("image", mssql.VarChar, image)
       .input("num_items", mssql.Int, num_items)
-      .input("updated_at", mssql.DateTime, currentTime)
       .execute("updateProductProc");
 
     console.log(result);

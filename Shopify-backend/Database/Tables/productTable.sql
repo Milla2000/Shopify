@@ -1,4 +1,4 @@
--- SET IDENTITY_INSERT productsTable ON;
+
 BEGIN TRY
     CREATE TABLE productsTable (
         id VARCHAR(200) PRIMARY KEY,
@@ -18,4 +18,4 @@ END CATCH;
 
 DROP TABLE IF EXISTS productsTable;
 
-SELECT * FROM productsTable
+SELECT * FROM productsTable;

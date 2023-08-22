@@ -15,7 +15,7 @@ const sqlConfig = {
     },
     options: {
         encrypt: false,
-        trustServerCertificate: true,
+        trustServerCertificate: false,
     }
 }
 

@@ -35,19 +35,40 @@ const deleteUser = async (req, res) => {
     }
 }
 
-const updateUser = async (req, res) => {
+
+// soft delete for users
+const softDeleteUser = async (req, res) => {
     try {
-        const { id } = req.params; // User ID to be updated
-        const { full_name, email, phone_number, username } = req.body;
+        const { id } = req.params; // User ID to be soft deleted
 
         const pool = await mssql.connect(sqlConfig);
 
         const result = await pool.request()
             .input('id', mssql.VarChar, id)
-            .input('full_name', mssql.VarChar, full_name)
+            .execute('softDeleteUserProc');
+
+        if (result.rowsAffected[0] === 1) {
+            return res.status(200).json({ message: 'User soft deleted successfully' });
+        } else {
+            return res.status(404).json({ message: 'User not found' });
+        }
+    } catch (error) {
+        return res.status(500).json({ error: error.message });
+    }
+};
+
+const updateUser = async (req, res) => {
+    try {
+        const { id } = req.params; // User ID to be updated
+        const {  username, email, phone_number,  } = req.body;
+
+        const pool = await mssql.connect(sqlConfig);
+
+        const result = await pool.request()
+            .input('id', mssql.VarChar, id)
+            .input('username', mssql.VarChar, username)
             .input('email', mssql.VarChar, email)
             .input('phone_number', mssql.VarChar, phone_number)
-            .input('username', mssql.VarChar, username)
             .execute('updateUserProc');
 
         if (result.rowsAffected[0] === 1) {
@@ -63,5 +84,6 @@ const updateUser = async (req, res) => {
 module.exports = {
     returnUsers,
     deleteUser,
-    updateUser
+    softDeleteUser,
+    updateUser,
 }

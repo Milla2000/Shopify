@@ -1,6 +1,7 @@
 {
   "name": "project-manager",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js",
@@ -13,7 +14,6 @@
     "@babel/preset-env": "^7.22.10",
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
-    "dependencies": "^0.0.1",
     "dotenv": "^16.3.1",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
@@ -26,6 +26,5 @@
   },
   "devDependencies": {
     "@types/jsonwebtoken": "^9.0.2"
-  },
-  "description": ""
+  }
 }
