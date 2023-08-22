@@ -81,9 +81,30 @@ const updateUser = async (req, res) => {
     }
 }
 
+const viewCartItemsForAdmin = async (req, res) => {
+    try {
+        const pool = await mssql.connect(sqlConfig);
+
+        const result = await pool.request()
+            .execute('viewCartItemsForAdminProc');
+
+        const cartItems = result.recordset;
+        if (cartItems.length > 0) {
+            return res.status(200).json(cartItems);
+        } else {
+            return res.status(404).json({ message: 'No cart items found' });
+        }
+    } catch (error) {
+        return res.status(500).json({ error: error.message });
+    }
+}
+
+
+
 module.exports = {
     returnUsers,
     deleteUser,
     softDeleteUser,
     updateUser,
+    viewCartItemsForAdmin
 }

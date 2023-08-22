@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const { registerUser, userLogin, checkUser } = require('../controllers/authControllers');
 
-const { returnUsers, updateUser, deleteUser, softDeleteUser } = require('../controllers/userController');
+const { returnUsers, updateUser, deleteUser, softDeleteUser, viewCartItemsForAdmin } = require('../controllers/userController');
 const { verifyToken } = require('../middleware/verifyToken');
 const usersRouter = Router()
 
@@ -15,6 +15,9 @@ usersRouter.delete('/permanentdelete/:id', deleteUser)
 usersRouter.delete('/softdelete/:id', softDeleteUser) 
 usersRouter.get('/check', verifyToken, checkUser)
 usersRouter.get('/allusers', verifyToken, returnUsers)
+usersRouter.get('/allcartitems', verifyToken, viewCartItemsForAdmin)
+
+
 
 module.exports = {
     usersRouter
