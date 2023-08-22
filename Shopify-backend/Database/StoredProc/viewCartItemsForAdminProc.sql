@@ -1,10 +1,11 @@
-CREATE PROCEDURE viewCartItemsForAdminProc
+CREATE OR ALTER PROCEDURE viewCartItemsForAdminProc
 AS
 BEGIN
     SELECT
         u.username,
         p.name AS product_name,
-        ci.price AS product_price
+        ci.price AS product_price,
+        ci.created_at AS item_created_at
     FROM
         usersTable u
     JOIN
@@ -14,4 +15,6 @@ BEGIN
     JOIN
         productsTable p ON ci.product_id = p.id;
 END;
+
+
 
