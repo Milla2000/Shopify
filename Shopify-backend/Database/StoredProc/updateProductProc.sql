@@ -1,5 +1,5 @@
 CREATE OR ALTER PROCEDURE updateProductProc (
-    @id INT,
+    @id VARCHAR(255),
     @name VARCHAR(255),
     @description TEXT,
     @price DECIMAL(10, 2),

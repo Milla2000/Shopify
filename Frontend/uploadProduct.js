@@ -7,6 +7,24 @@ const num_items = document.querySelector('.num_items');
 const image = document.querySelector('.image');
 const token = localStorage.token
 
+let profileurl = ''
+
+image.addEventListener('change', (event) => {
+    const target = event.target
+    const files = target.files
+    if(files){
+        const formData = new FormData()
+        formData.append("file", files[0])
+        formData.append("upload_preset","Shoppie")
+        formData.append("cloud_name", "dhgs8thzx")
+
+        fetch('https://api.cloudinary.com/v1_1/dhgs8thzx/image/upload', {
+            method: 'POST',
+            body: formData
+        }).then((res)=>res.json()).then(res => profileurl = res.url)
+    }
+})
+
 uploadProduct.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -16,7 +34,7 @@ uploadProduct.addEventListener('submit', (e) => {
         price.value !== "" &&
         category.value !== "" &&
         num_items.value !== "" &&
-        image.value !== "";
+        profileurl !== ""; // Check if the profileurl is not empty
 
     if (createProduct) {
         axios.post(
@@ -26,18 +44,19 @@ uploadProduct.addEventListener('submit', (e) => {
                 description: description.value,
                 price: price.value,
                 category: category.value,
-                num_items:num_items.value,
-                image: image.value
+                num_items: num_items.value,
+                image: profileurl // Use the Cloudinary URL here
             },
             {
-              headers: {
-                "Accept": "application/json",
-                "Content-type": "application/json",
-                "token": token
-            }            
+                headers: {
+                    "Accept": "application/json",
+                    "Content-type": "application/json",
+                    "token": token
+                }
             }
         ).then((res) => {
             console.log(res.data);
+            window.location.href = "./adminAllProducts.html";
         });
     }
 });

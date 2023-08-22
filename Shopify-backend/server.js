@@ -26,13 +26,13 @@ app.use((err,req,res,next)=>{
 
 
 //node-mailer cron job here
-cron.schedule("*/90 * * * * *", async () => {
-  //runs every 5 seconds
+// cron.schedule("*/90 * * * * *", async () => {
+//   //runs every 5 seconds
 
-  console.log("running a task every 5 seconds");
-  await welcomeAboard();
-  console.log("called welcomeAboard");
-}); 
+//   console.log("running a task every 5 seconds");
+//   await welcomeAboard();
+//   console.log("called welcomeAboard");
+// }); 
 
 
 app.listen(4500,()=>{
