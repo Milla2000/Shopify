@@ -13,20 +13,23 @@
             <input type="text" placeholder="Search any product" style="background-color: rgba(34, 152, 203, 0.2);">
             <h4>Shop</h4>
             <img src="./Images/mdi_cart.png" alt="cart">
-            <button class="button">Register</button>
+            <h3>Admin</h3>
         </div>
 </header>
 <body>
     <h2 style="color: rgba(34, 152, 203, 1);">Upload Product</h2>
     <div class="upload">
-        <form action="">
-            <input type="Name" placeholder="Name" style="border: 1px solid rgba(34, 152, 203, 1);">
-            <textarea name="Product Description" id="" cols="35" rows="10" placeholder="Product Description" style="border: 1px solid rgba(34, 152, 203, 1); border-radius: 1vh;"></textarea>
-            <input type="text" placeholder="Product Price" style="border: 1px solid rgba(34, 152, 203, 1);">
-            <input type="file" accept=".png,.jpg,.jpeg" src="" alt="" placeholder="Input Image" style="border: 1px solid rgba(34, 152, 203, 1);">
-            <button class="button">Upload Product</button>
+        <form action="" id="uploadProduct">
+            <input type="text" placeholder="Name" style="border: 1px solid rgba(34, 152, 203, 1);" class="name">
+            <input type="text" placeholder="Product Category" style="border: 1px solid rgba(34, 152, 203, 1);" class="category">
+            <textarea name="Product Description" id="" cols="35" rows="10" placeholder="Product Description" style="border: 1px solid rgba(34, 152, 203, 1); border-radius: 1vh;" class="description"></textarea>
+            <input type="text" placeholder="Number of Products" style="border: 1px solid rgba(34, 152, 203, 1);" class="num_items">
+            <input type="number" placeholder="Product Price" style="border: 1px solid rgba(34, 152, 203, 1);" class="price">
+            <input type="file" accept=".png,.jpg,.jpeg" src="" alt="" placeholder="Input Image" style="border: 1px solid rgba(34, 152, 203, 1);" class="image">
+            <button class="button" type="submit">Upload Product</button>
         </form>
     </div>
+    <script src="./uploadProduct.js"></script>
 </body>
 <footer>
     <img src="./Images/logo.png" alt="logo">
@@ -37,4 +40,5 @@
     </div>
     <p style="font-style: italic; font-size: 10px; color: rgba(0, 0, 0, 0.7);">Copyright © 2023 Shoppie. All rights reserved</p>
     </footer>
+    
 </html>

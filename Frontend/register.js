@@ -24,7 +24,7 @@ registerForm.addEventListener("submit", (e) => {
         "http://localhost:4500/users/register",
 
         {
-          full_name: full_name.value,
+          username: full_name.value,
           email: email.value,
           password: password.value,
           phone_number: phone_number.value,

@@ -179,6 +179,7 @@ h2{
     align-items: center;
     justify-content: center;
     padding: 5vh;
+    gap: 5vh;
 }
 @media screen and (max-width: 768px){
     .master{
