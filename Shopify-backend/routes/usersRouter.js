@@ -10,9 +10,9 @@ usersRouter.post('/register', registerUser)
 usersRouter.post('/login', userLogin)
 
 
-usersRouter.put('/:id', updateUser)
-usersRouter.delete('/permanentdelete/:id', deleteUser)
-usersRouter.delete('/softdelete/:id', softDeleteUser) 
+usersRouter.put('/:id', verifyToken, updateUser)
+usersRouter.delete('/permanentdelete/:id', verifyToken, deleteUser)
+usersRouter.delete('/softdelete/:id', verifyToken, softDeleteUser) 
 usersRouter.get('/check', verifyToken, checkUser)
 usersRouter.get('/allusers', verifyToken, returnUsers)
 usersRouter.get('/allcartitems', verifyToken, viewCartItemsForAdmin)

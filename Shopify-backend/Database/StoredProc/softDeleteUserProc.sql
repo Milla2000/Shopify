@@ -4,6 +4,6 @@ AS
 BEGIN
     -- Soft delete user by updating the deleted_at timestamp
     UPDATE usersTable
-    SET email = 'deleted', deleted_at = GETDATE()
+    SET email = 'deleted',username = 'deleted', deleted_at = GETDATE()
     WHERE id = @id;
 END;

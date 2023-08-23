@@ -7,7 +7,7 @@ const { getCartItems, addToCartAndCalculateTotal } = require('../controllers/car
 cartRouter = Router();
 
 cartRouter.post('/add-to-cart', verifyToken, addToCartAndCalculateTotal);
-cartRouter.get('/cart-items', getCartItems);
+cartRouter.get('/cart-items', verifyToken, getCartItems);
 
 
 
