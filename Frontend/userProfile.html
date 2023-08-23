@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="style.css">
-    <title>Shoppie: Product Information</title>
+    <title>Shoppie: Profile</title>
 </head>
 <header>
     <div class="nav">
@@ -21,26 +21,23 @@
         </div>
 </header>
 <body>
-    <h2 style="color: rgba(34, 152, 203, 1);">Product Information</h2>
-    <div class="productInfo">
-        <!-- <div class="productInfoImage">
-            <img src="./Images/car 2.png" alt="Product Info" style="height: 65%; width: 50%;">
-        </div>
-        <div class="productDescription">
-            <h3>Range Rover</h3>
-            <p>With its commanding presence, luxurious features, and 
-                superior performance, this Range Rover embodies both style 
-                and power. Meticulously cared for, this vehicle exudes elegance 
-                and refinement at every turn.
-            </p>
-            <h3>Ksh: 7,000,000</h3>
-            <button class="button">Add to cart</button>
-        </div> -->
+    <div class="master">
+        <h2>Edit Profile</h2>
+        <form id="editProfileForm">
+            <label for="editName">Name:</label>
+            <input type="text" id="editName" name="name">
+            <label for="editEmail">Email:</label>
+            <input type="email" id="editEmail" name="email">
+            <label for="editPhone">Phone:</label>
+            <input type="number" id="editPhone" name="Phone">
+            <label for="editPassword">Password:</label>
+            <input type="text" id="editPassword" name="Password">
+            <button type="submit">Save Changes</button>
+        </form>
     </div>
-
-    <script src="./productInfo.js" defer></script>
+<script src="./userProfile.js" defer></script>
 </body>
-<!-- <footer>
+<footer>
     <img src="./Images/logo.png" alt="logo">
     <div class="socials">
         <img src="./Images/ic_baseline-facebook.png" alt="facebook">
@@ -48,5 +45,5 @@
         <img src="./Images/mdi_youtube.png" alt="Youtube">
     </div>
     <p style="font-style: italic; font-size: 10px; color: rgba(0, 0, 0, 0.7);">Copyright © 2023 Shoppie. All rights reserved</p>
-    </footer> -->
+    </footer>
 </html>

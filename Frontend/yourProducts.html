@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>Shoppie: Your Products</title>
 </head>
@@ -12,15 +13,35 @@
             <img src="./Images/logo.png" alt="logo">
             <input type="text" placeholder="Search any product" style="background-color: rgba(34, 152, 203, 0.2);">
             <h4>Shop</h4>
-            <img src="./Images/mdi_cart.png" alt="cart">
-            <button class="button">Register</button>
+            <a href="./cart.html">
+                <img src="./Images/mdi_cart.png" alt="cart" >
+            </a>
+            <button class="button">Profile</button>
         </div>
 </header>
 <body>
     <div class="products">
         <h2 style="color: rgba(34, 152, 203, 1);">Your Products</h2>
         <div class="actual-products">
+            <!-- <div class="product-item"> -->
+                <!-- <div class="productImage">
+                    <img src="./Images/car 2.png" alt="" style="height: 20vh; width: 30vh;">
+                </div>
+                <p>Range Rover</p>
+                <p>Ksh 7,000,000</p>
+                <img src="./Images/stars.png" alt="" style="height: 3vh; width: 16vh;">
+                <button class="addToCart"> <a href="./productInfo.html" style="color: #fff;">Add to cart</a> </button>
+            </div>
             <div class="product-item">
+                <div class="productImage">
+                    <img src="./Images/car 2.png" alt="" style="height: 20vh; width: 30vh;">
+                </div>
+                <p>Range Rover</p>
+                <p>Ksh 7,000,000</p>
+                <img src="./Images/stars.png" alt="" style="height: 3vh; width: 16vh;">
+                <button class="addToCart"> <a href="./productInfo.html" style="color: #fff;">Add to cart</a> </button>
+            </div> -->
+            <!-- <div class="product-item">
                 <div class="productImage">
                     <img src="./Images/car 2.png" alt="" style="height: 20vh; width: 30vh;">
                 </div>
@@ -63,28 +84,11 @@
                 <p>Range Rover</p>
                 <p>Ksh 7,000,000</p>
                 <img src="./Images/stars.png" alt="" style="height: 3vh; width: 16vh;">
-                <button class="addToCart"> <a href="./productInfo.html" style="color: #fff;">Add to cart</a> </button>
-            </div>
-            <div class="product-item">
-                <div class="productImage">
-                    <img src="./Images/car 2.png" alt="" style="height: 20vh; width: 30vh;">
-                </div>
-                <p>Range Rover</p>
-                <p>Ksh 7,000,000</p>
-                <img src="./Images/stars.png" alt="" style="height: 3vh; width: 16vh;">
-                <button class="addToCart"> <a href="./productInfo.html" style="color: #fff;">Add to cart</a> </button>
-            </div>
-            <div class="product-item">
-                <div class="productImage">
-                    <img src="./Images/car 2.png" alt="" style="height: 20vh; width: 30vh;">
-                </div>
-                <p>Range Rover</p>
-                <p>Ksh 7,000,000</p>
-                <img src="./Images/stars.png" alt="" style="height: 3vh; width: 16vh;">
-                <button class="addToCart"> <a href="./productInfo.html" style="color: #fff;">Add to cart</a> </button>
-            </div>
+                <button class="addToCart"> <a href="./productInfo.html" style="color: #fff;">Add to cart</a> </button> -->
+            <!-- </div> -->
         </div>
     </div>
+    <script src="./yourProducts.js" defer></script>
 </body>
 <footer>
 <img src="./Images/logo.png" alt="logo">

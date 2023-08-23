@@ -114,6 +114,7 @@ header{
 }
 .product-item:hover{
     cursor: pointer;
+    transform: scale(1.01);
 }
 button:hover{
     cursor: pointer;
@@ -128,12 +129,14 @@ footer{
     flex-direction: column;
     gap: 3vh;
 }
-.productInfo{
+.productInfo>div{
     display: flex;
     padding: 5vh;
     gap: 10vh;
 }
 .productInfoImage{
+    height: 50%;
+    width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -179,8 +182,22 @@ h2{
     align-items: center;
     justify-content: center;
     padding: 5vh;
+    gap: 5vh;
 }
+
+.edit-container{
+    background-color: rgba(34, 152, 203, 0.3);
+    /* margin-top: ; */
+    margin-left: 70vh;
+    margin-right: 70vh;
+    border-radius: 2vh;
+}
+
 @media screen and (max-width: 768px){
+    *{
+        font-size: 10px;
+    }
+    
     .master{
         margin-top: 15vh;
         margin-left: 7vh;

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>Shoppie: Admin All Products</title>
 </head>
@@ -15,9 +16,15 @@
         </div>
 </header>
 <body>
-    <h2 style="color: rgba(34, 152, 203, 1);">All Products</h2>
+    <h2 style="color: rgba(34, 152, 203, 1);">
+        All Products
+        <a href="./uploadProduct.html">
+            <button class="button">Upload Product</button>
+        </a>
+    </h2>
+    <div class="edit-container" style="background-color: rgba(115, 191, 223, 0.6);"></div>
 <div class="cart">
-    <table>
+    <table class="cart-table">
         <tr>
             <th>Product Image</th>
             <th>Product Name</th>
@@ -25,7 +32,7 @@
             <th>Product Action</th>
         </tr>
         <tr>
-            <td><img src="./Images/car 2.png" alt="Product Image"></td>
+            <!-- <td><img src="./Images/car 2.png" alt="Product Image"></td>
             <td>Range Rover</td>
             <td>Ksh 7,000,000</td>
             <td>
@@ -63,10 +70,11 @@
                 <div class="actions">
                     <button class="button">Edit</button>
                     <button class="button" style="background-color: rgba(203, 34, 34, 1);"> Remove</button>                </div>
-            </td>
+            </td> -->
         </tr>
     </table>
 </div>
+<script src="./allProducts.js" defer></script>
 </body>
 <footer>
     <img src="./Images/logo.png" alt="logo">

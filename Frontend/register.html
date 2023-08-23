@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>Shoppie: Register</title>
 </head>
 <body>
     <div class="body">
         <div class="master">
-            <form action="" id="register">
+            <form action="" id="register" class=registerForm>
                 <img src="./Images/logo.png" alt="logo">
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <input type="tel" placeholder="Phone Number">
-                <input type="password" placeholder="Password">
+                <input type="text" placeholder="Name" class="full_name">
+                <input type="email" placeholder="Email" class="email">
+                <input type="tel" placeholder="Phone Number" class="phone_number">
+                <input type="password" placeholder="Password" class="password">
                 <button type="submit">Register</button>
                 <p>Already have an account?</p>
                 <a href="./login.html">Log in</a>
@@ -22,4 +23,5 @@
         </div>
     </div>
 </body>
+<script src="./register.js"></script>
 </html>

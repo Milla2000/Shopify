@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>Shoppie: Your Cart</title>
 </head>
@@ -11,13 +12,15 @@
             <img src="./Images/logo.png" alt="logo">
             <input type="text" placeholder="Search any product" style="background-color: rgba(34, 152, 203, 0.2);">
             <h4>Shop</h4>
-            <img src="./Images/mdi_cart.png" alt="cart">
+            <a href="./cart.html">
+                <img src="./Images/mdi_cart.png" alt="cart" >
+            </a>
             <button class="button">Register</button>
         </div>
 </header>
 <body>
     <h2 style="color: rgba(34, 152, 203, 1);">Your Cart</h2>
-<div class="cart">
+<div class="cart-table">
     <table>
         <tr>
             <th>Product Image</th>
@@ -25,7 +28,7 @@
             <th>Product Price</th>
             <th>Product Action</th>
         </tr>
-        <tr>
+        <!-- <tr>
             <td><img src="./Images/car 2.png" alt="Product Image"></td>
             <td>Range Rover</td>
             <td>Ksh 7,000,000</td>
@@ -71,9 +74,10 @@
             <td><h2>Total:</h2></td>
             <td><h2>Ksh 28,000,000</h2></td>
             <td></td>
-        </tr>
+        </tr> -->
     </table>
 </div>
+<script src="./cart.js" defer></script>
 </body>
 <footer>
     <img src="./Images/logo.png" alt="logo">
