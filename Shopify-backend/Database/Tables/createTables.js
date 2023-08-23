@@ -4,23 +4,25 @@ const { sqlConfig } = require("../../config/config");
 const createUsersTable = async () => {
   try {
     const table = `
-        BEGIN 
-            TRY
-                CREATE TABLE users (
-                    id INT PRIMARY KEY IDENTITY,
-                    username VARCHAR(50) NOT NULL UNIQUE,
-                    email VARCHAR(100) NOT NULL UNIQUE,
-                    password VARCHAR(255) NOT NULL,
-                    role VARCHAR(20) NOT NULL,
-                    created_at DATETIME DEFAULT GETDATE(),
-                    updated_at DATETIME,
-                    cart_id INT,
-                    CONSTRAINT FK_UserCart FOREIGN KEY (cart_id) REFERENCES cartsTable(id)
-                );
-            END TRY
-        BEGIN CATCH
-            THROW 50002, 'Table already exists', 1;
-        END CATCH`;
+        BEGIN TRY
+    CREATE TABLE usersTable (
+        id VARCHAR(200) PRIMARY KEY,
+        username VARCHAR(50) NOT NULL ,
+        email VARCHAR(100) NOT NULL UNIQUE,
+        password VARCHAR(255) NOT NULL,
+        role VARCHAR(20) NOT NULL DEFAULT 'user',
+        phone_number INT, -- Remove (20)
+        created_at DATETIME DEFAULT GETDATE(),
+        updated_at DATETIME,
+        cart_id INT,
+        resetToken VARCHAR(200), 
+        resetTokenExpiry DATETIME, 
+        deleted_at DATETIME 
+    );
+    END TRY
+    BEGIN CATCH
+    THROW 50001, 'Table already exists!', 1;
+    END CATCH`;
 
     const pool = await mssql.connect(sqlConfig);
 

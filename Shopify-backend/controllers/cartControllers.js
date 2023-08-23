@@ -45,7 +45,7 @@ const addToCartAndCalculateTotal = async (req, res) => {
             await pool.request()
                 .input("cart_id", mssql.VarChar, cart_id)
                 .input("user_id", mssql.VarChar, user_id)
-                .execute("createNewCartProc"); // Create a new cart using a stored procedure
+                .execute("createCartProc"); // Create a new cart using a stored procedure
         } else {
             cart_id = existingCart.recordset[0].id;
         }
@@ -68,7 +68,7 @@ const addToCartAndCalculateTotal = async (req, res) => {
         // Call stored procedure to add product to cart and calculate total price
         const result = await pool.request()
             .input("id", mssql.VarChar, v4()) // Do not use v4() here
-            .input("user_id", mssql.VarChar, cart_id)
+            .input("cart_id", mssql.VarChar, cart_id)
             .input("product_id", mssql.VarChar, product_id)
             .input("product_name", mssql.VarChar, name)
             .input("price", mssql.Decimal, price)

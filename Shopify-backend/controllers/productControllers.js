@@ -1,11 +1,12 @@
 const {v4} = require('uuid');
 const mssql = require ('mssql');
 const { sqlConfig } = require('../config/config');
-const { createProductsTable } = require('../Database/Tables/createTables');
+const {  createCartItemsTable, createCartsTable, createProductsTable } = require('../Database/Tables/createTables');
 // const { hereIsYourNewProject } = require('../EmailService/newUser');
 
 const createNewProduct = async (req, res) => {
   try {
+    createProductsTable()
     const id = v4();
     // const currentTime = new Date();
     const { name, description, price, category, image, num_items } = req.body;
