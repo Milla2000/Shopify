@@ -16,13 +16,9 @@ POST  http://localhost:4500/users/login
 Content-Type: application/json
 
 {
-    "email":"openo2000@gmail.com",
+    "email":"admin@gmail.com",
     "password":"12345678"
 }
-
-
-
-
 
 
 ###CREATE A PRODUCT
@@ -101,7 +97,7 @@ POST  http://localhost:4500/reset/resetPassword
 Content-Type: application/json
 
 {
-    "email": "jessyopeno2000@gmail.com"   
+    "email": "ngatiamwai25@gmail.com"   
 }
 
 ### reset password
@@ -134,8 +130,7 @@ Content-Type: application/json
 
 ### get all users 
 GET http://localhost:4500/users/allusers
-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRhbmllbHMiLCJlbWFpbCI6Implc3N5b3Blbm8yMDAwQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDA1JE53T2FZRzZjZ2NTQW1BT0FNeGRJc2VrOTNtV1ZESjFGeWdoZkczNkM5R3laM2VYSzhZc0ZTIiwicGhvbmVfbnVtYmVyIjoxMjM0NTY3OCwiY3JlYXRlZF9hdCI6IjIwMjMtMDgtMjJUMjE6MDc6MTAuMDQ3WiIsInVwZGF0ZWRfYXQiOm51bGwsImNhcnRfaWQiOm51bGwsInJlc2V0VG9rZW4iOm51bGwsInJlc2V0VG9rZW5FeHBpcnkiOm51bGwsImRlbGV0ZWRfYXQiOm51bGwsImlhdCI6MTY5MjczMTQwMCwiZXhwIjoxNjkyNzM1MDAwfQ.udlSgYnovM_m-wQF__ZevGGndb7toNxXjnN1yUIxMWo
-
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5nYXRpYSIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMDUkSHZpeG9qQUlwWHRjZXhpZzRSaEZ1dXdFV1VsUFdqYVM0T1YyQUMxWUZSMDVmV1p5TUpUOFMiLCJwaG9uZV9udW1iZXIiOiIxMjM0NTY3OCIsImNyZWF0ZWRfYXQiOiIyMDIzLTA4LTIxVDE1OjQzOjUxLjk1M1oiLCJ1cGRhdGVkX2F0IjpudWxsLCJjYXJ0X2lkIjpudWxsLCJpYXQiOjE2OTI3NDE2NDYsImV4cCI6MTY5Mjc0NTI0Nn0.NfsVfPWuUsUa8PUYLZuBtnUwFt2db4LgedOaWwVRP5Y
 
 
 ###delete user-soft delete

@@ -3,7 +3,7 @@ function productInfo() {
     const id = urlParams.get('id');
     const token = localStorage.token;
 
-    console.log('Fetching product information for ID:', id);
+    // console.log('Fetching product information for ID:', id);
 
     axios
         .get(
@@ -32,8 +32,9 @@ function productInfo() {
                     <h3>${product.name}</h3>
                     <p>${product.description ? product.description : 'No description available.'}</p>
                     <h3>Ksh: ${product.price ? product.price : 'Price not available.'}</h3>
-                    <button class="button">Add to cart</button>
-                </div>
+                    <button class="addToCart">
+                        <a href="./cart.html?id=${product.id}&price=${product.price}&image="${product.image}"&description=${encodeURIComponent(product.description)}&name=${encodeURIComponent(product.name)}" style="color: #fff;">Add to cart</a>
+                    </button>                </div>
             `;
 
             productInfoContainer.appendChild(productContainer);
