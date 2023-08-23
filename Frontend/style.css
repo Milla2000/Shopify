@@ -95,6 +95,10 @@ header{
     border-radius: 1vh;
     margin: 2vh;
 }
+.productImage>img{
+    height: 20vh; 
+   width: 22vh;
+}
 .addToCart{
     border-radius: 1vh;
     height: 5vh;
@@ -184,10 +188,17 @@ h2{
     padding: 5vh;
     gap: 5vh;
 }
+.show {
+    display: flex !important; /* !important is used to override other display rules */
+}
+
+.hide {
+    display: none !important;
+}
+
 
 .edit-container{
     background-color: rgba(34, 152, 203, 0.3);
-    /* margin-top: ; */
     margin-left: 70vh;
     margin-right: 70vh;
     border-radius: 2vh;
@@ -208,5 +219,23 @@ h2{
     }
     button[type='submit']{
         width: 60vw;
+    }
+    .productImage>img{
+        height: 10vh;
+        width: 10vh;
+    }
+    .actual-products{
+        grid-template-columns: repeat(3, 28%);
+    }
+    footer>img, .nav>img{
+        height: 7vh;
+        width: 10vh;
+    }
+    .socials>img{
+        height: 4vh;
+        width: 3vh;
+    }
+    .nav>input{
+        width: 25vh;
     }
 }

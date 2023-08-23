@@ -8,4 +8,4 @@
 
 SELECT * FROM cartsTable;
 
-DROP TABLE IF EXISTS cartsTable;
+-- DROP TABLE IF EXISTS cartsTable;

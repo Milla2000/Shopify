@@ -8,6 +8,7 @@ function cart() {
     axios
         .post(
             `http://localhost:4500/cart/add-to-cart`,
+            {},
             {
                 headers: {
                     "Accept": "application/json",
@@ -19,6 +20,9 @@ function cart() {
         .then((res) => {
             const result = res.data;
             console.log(result);
+
+            // Display success alert
+            alert("Product added to cart successfully!");
 
             const tableBody = document.querySelector('.cart-table'); // Select the table body element
 

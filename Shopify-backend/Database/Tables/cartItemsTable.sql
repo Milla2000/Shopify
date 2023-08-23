@@ -12,6 +12,6 @@ CREATE TABLE cartItemsTable (
 
 SELECT * FROM cartItemsTable;
 
-DELETE FROM cartItemsTable;
+-- DELETE FROM cartItemsTable;
 
-DROP TABLE IF EXISTS cartItemsTable;
+-- DROP TABLE IF EXISTS cartItemsTable;

@@ -16,8 +16,8 @@ POST  http://localhost:4500/users/login
 Content-Type: application/json
 
 {
-    "email":"admin@gmail.com",
-    "password":"12345678"
+    "email":"ngatiamwai25@gmail.com",
+    "password":"123456789"
 }
 
 
@@ -70,11 +70,11 @@ token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikphc29uIiwiZW1haWwiO
 ###add product to cart
 POST http://localhost:4500/cart/add-to-cart
 Content-Type: application/json
-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikphc29uIiwiZW1haWwiOiJvcGVubzIwMDBAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMDUkMlBWUVE3enF4Vy92ZWV4ZmxMUkFZdTlHUC9FMUU4RDNORFJVaUFQMDR6MEFTSElvNldCUFciLCJwaG9uZV9udW1iZXIiOjEyMzQ1Njc4LCJjcmVhdGVkX2F0IjoiMjAyMy0wOC0yMlQyMzowMzoxMi41MTNaIiwidXBkYXRlZF9hdCI6bnVsbCwiY2FydF9pZCI6bnVsbCwicmVzZXRUb2tlbiI6bnVsbCwicmVzZXRUb2tlbkV4cGlyeSI6bnVsbCwiZGVsZXRlZF9hdCI6bnVsbCwiaWF0IjoxNjkyNzM0NjM3LCJleHAiOjE2OTI3MzgyMzd9.OBFKi7WEOdmSSP9oJGbarCdS42JKxIZnn1pZZb1oB0Y
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik5nYXRpYSBNd2FpIiwiZW1haWwiOiJuZ2F0aWFtd2FpMjVAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMDUkWlVORHMud3NNNUdLS21VOVR0ejJTT04vYzl0T3dpWk1iZkNxTlNpUjU3Q2ZkWnIybDFNM2EiLCJwaG9uZV9udW1iZXIiOiIwNzkzNjkzMjI0IiwiY3JlYXRlZF9hdCI6IjIwMjMtMDgtMjFUMTU6MTg6NTYuMTIwWiIsInVwZGF0ZWRfYXQiOm51bGwsImNhcnRfaWQiOm51bGwsImlhdCI6MTY5Mjc4NTI2MCwiZXhwIjoxNjkyNzg4ODYwfQ.R1FdRd-phu5a8d3-Y5YpoW2VA6j3KzPJlIcmzZc5Clk
 
 {
-  "user_id": "77e9931a-30b5-4120-9e99-e42ccae6ffa3",
-  "product_id": "2f84cb0d-f82b-4d48-b951-296f367a84ed"     
+  "user_id": "ad1a1b1f-afe0-4aa0-ad9a-978ce05d945f",
+  "product_id": "d013ede0-ed63-4f03-9e60-f753e9f330e4"     
 }
 
 

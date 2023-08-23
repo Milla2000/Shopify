@@ -1,6 +1,6 @@
 function yourProducts() {
     const token = localStorage.token;
-
+    
     axios
         .get(
             "http://localhost:4500/products",
@@ -24,7 +24,7 @@ function yourProducts() {
                 
                 productContainer.innerHTML = `
                     <div class="productImage">
-                        <img src="${product.image}" alt="" style="height: 20vh; width: 30vh;">
+                        <img src="${product.image}" alt="" >
                     </div>
                     <p>${product.name}</p>
                     <p>Ksh ${product.price}</p>
@@ -44,3 +44,5 @@ function yourProducts() {
 }
 
 yourProducts();
+
+  
