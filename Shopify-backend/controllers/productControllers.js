@@ -120,13 +120,25 @@ const updateProduct = async (req, res) => {
 
 
 
-//delete product controller
 const deleteProduct = async (req, res) => {
   try {
     const id = req.params.id;
 
     const pool = await mssql.connect(sqlConfig);
 
+    // Check if the product is referenced in the cartItemsTable
+    const cartItemCheck = await pool
+      .request()
+      .input("product_id", id)
+      .execute("checkProductInCartProc");
+
+    if (cartItemCheck.recordset.length > 0) {
+      return res.json({
+        message: "Product cannot be deleted as it is added to a cart.",
+      });
+    }
+
+    // If not referenced, proceed to delete the product
     const result = await pool
       .request()
       .input("id", id)
@@ -145,6 +157,7 @@ const deleteProduct = async (req, res) => {
     return res.json({ error });
   }
 };
+
 
 
 

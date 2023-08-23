@@ -35,3 +35,7 @@ VALUES (
 );
 
 SELECT * FROM usersTable;
+
+UPDATE usersTable
+SET role = 'admin'
+WHERE id = 'cda82a8b-ae1e-4d94-ad13-444e3c0fb55d';
