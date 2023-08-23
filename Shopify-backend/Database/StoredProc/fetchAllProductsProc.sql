@@ -1,4 +1,0 @@
-CREATE OR ALTER PROCEDURE fetchAllProductsProc
-AS
-BEGIN SELECT * FROM productsTable 
-END
