@@ -81,7 +81,6 @@ const updateUser = async (req, res) => {
     }
 }
 
-<<<<<<< HEAD
 const viewCartItemsForAdmin = async (req, res) => {
     try {
         const pool = await mssql.connect(sqlConfig);
@@ -102,15 +101,10 @@ const viewCartItemsForAdmin = async (req, res) => {
 
 
 
-=======
->>>>>>> d5675689c1d263c0192ec993e04daadc75c6980a
 module.exports = {
     returnUsers,
     deleteUser,
     softDeleteUser,
     updateUser,
-<<<<<<< HEAD
     viewCartItemsForAdmin
-=======
->>>>>>> d5675689c1d263c0192ec993e04daadc75c6980a
 }

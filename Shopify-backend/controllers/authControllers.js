@@ -4,10 +4,7 @@ const jwt = require("jsonwebtoken");
 const { v4 } = require("uuid");
 const { sqlConfig } = require("../config/config");
 const { registerSchema, loginSchema } = require("../validators/validators");
-<<<<<<< HEAD
-const { createCartItemsTable, createCartsTable, createUsersTable, createProductsTable } = require('../Database/Tables/createTables');
-=======
->>>>>>> d5675689c1d263c0192ec993e04daadc75c6980a
+const { createUsersTable } = require('../Database/Tables/createTables');
 const dotenv = require("dotenv");
 dotenv.config();
 
@@ -15,19 +12,12 @@ dotenv.config();
 
 const registerUser = async (req, res) => {
   try {
-<<<<<<< HEAD
 
     createUsersTable()
     const id = v4();
 
     const { username, email, password, phone_number } = req.body;
     
-=======
-    const id = v4();
-
-    const { username, email, password, phone_number } = req.body;
-
->>>>>>> d5675689c1d263c0192ec993e04daadc75c6980a
     const { error } = registerSchema.validate(req.body);
 
     if (error) {
