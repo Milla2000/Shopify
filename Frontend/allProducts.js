@@ -15,10 +15,11 @@ function products() {
         .then((res) => {
             const result = res.data;
             console.log(result);
-
+            // newRow = ""
             const tableBody = document.querySelector('.cart-table'); // Select the table body element
 
             result.products.forEach(product => {
+                
                 const newRow = document.createElement('tr');
                 newRow.innerHTML = `
                     <td><img src="${product.image}" alt="Product Image"></td>
@@ -66,19 +67,22 @@ function deleteProduct(id) {
             },
         }
     )
-    .then((res) => {
-        console.log("Product deleted:", res.data);
-
-        // Display success alert
-        alert("Product deleted successfully!");
-
-        // Refresh the product list after deletion
-        products();
-    })
     .catch((error) => {
-        console.error('An error occurred:', error);
+        // Display error message
+        // console.error('An error occurred:', error);
+        alert("Product cant be deleted because it is in a cart.");
+    })
+    .then((res) => {
+        if (res && res.data && res.data.message === "Product deleted successfully") {
+            // Display success alert
+            alert("Product deleted successfully!");
+
+            // Refresh the product list after deletion
+            products();
+        } 
     });
 }
+
 
 function editProduct(id) {
     const token = localStorage.token;
