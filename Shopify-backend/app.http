@@ -4,8 +4,8 @@ Content-Type: application/json
 
 {
    
-    "username": "JaJnaduong",
-    "email":"jadunong@gmail.com",
+    "username": "JaTJnaduong",
+    "email":"jadunoTng@gmail.com",
     "password":"12345678",
     "phone_number": "12345678"
 }
@@ -17,7 +17,7 @@ Content-Type: application/json
 
 {
     "email":"jessyopeno2000@gmail.com",
-    "password":"789milla"
+    "password":"milla789"
 }
 
 
@@ -32,7 +32,7 @@ token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRhbmllbHMiLCJlbWFpb
 
 
 {
-    "name": "JOHN MIILA NGATIA",
+    "name": "MIILA NGATIA product",
     "description": "It ndgcvworks, don’t touch!",
     "price": "2023/8/5",
     "category": "2023/8/5",
@@ -54,8 +54,9 @@ token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRhbmllbHMiLCJlbWFpb
 PUT http://localhost:4500/products/2f84cb0d-f82b-4d48-b951-296f367a84ed
 Content-Type: application/json
 token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRhbmllbHMiLCJlbWFpbCI6Implc3N5b3Blbm8yMDAwQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDA1JHk4eEQxRks0UWFxTC5ScFhtYXYvWWVXblBoMlVyNktqYmU5bkJEcWgwck40b1dreXdJc2cyIiwicGhvbmVfbnVtYmVyIjoxMjM0NTY3OCwiY3JlYXRlZF9hdCI6IjIwMjMtMDgtMjJUMjE6MDc6MTAuMDQ3WiIsInVwZGF0ZWRfYXQiOm51bGwsImNhcnRfaWQiOm51bGwsInJlc2V0VG9rZW4iOiI1YjM4MjIzZC1mZTU2LTQxMjYtYmIyOC02MmVhMWQwNWIzYjgiLCJyZXNldFRva2VuRXhwaXJ5IjoiMjAyMy0wOC0yNFQxMToyMToyOS40MjNaIiwiZGVsZXRlZF9hdCI6bnVsbCwiaWF0IjoxNjkyODc0MzY5LCJleHAiOjE2OTI5MTAzNjl9.6E80VEulawirccwBQzS1Ftz8Rp_j596HOYz6OLeKfAE
+
 {
-    "name": "BIG JESSY NOW",
+    "name": "BIG JESSY UPDATED",
     "description": "It works, don’t touch!",
     "price": "2023/8/5",
     "category": "electricals",
@@ -65,7 +66,7 @@ token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRhbmllbHMiLCJlbWFpb
 }
 
 ###delete product
-DELETE http://localhost:4500/products/c8efd1e4-551a-47de-9f00-638717148660
+DELETE http://localhost:4500/products/2f84cb0d-f82b-4d48-b951-296f367a84ed
 token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRhbmllbHMiLCJlbWFpbCI6Implc3N5b3Blbm8yMDAwQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDA1JHk4eEQxRks0UWFxTC5ScFhtYXYvWWVXblBoMlVyNktqYmU5bkJEcWgwck40b1dreXdJc2cyIiwicGhvbmVfbnVtYmVyIjoxMjM0NTY3OCwiY3JlYXRlZF9hdCI6IjIwMjMtMDgtMjJUMjE6MDc6MTAuMDQ3WiIsInVwZGF0ZWRfYXQiOm51bGwsImNhcnRfaWQiOm51bGwsInJlc2V0VG9rZW4iOiI1YjM4MjIzZC1mZTU2LTQxMjYtYmIyOC02MmVhMWQwNWIzYjgiLCJyZXNldFRva2VuRXhwaXJ5IjoiMjAyMy0wOC0yNFQxMToyMToyOS40MjNaIiwiZGVsZXRlZF9hdCI6bnVsbCwiaWF0IjoxNjkyODc0MzY5LCJleHAiOjE2OTI5MTAzNjl9.6E80VEulawirccwBQzS1Ftz8Rp_j596HOYz6OLeKfAE
 
 ###add product to cart
@@ -117,8 +118,8 @@ POST  http://localhost:4500/reset/updatePassword
 Content-Type: application/json
 
 {
-    "resetToken": "7de101ab-8ab8-4946-a999-b2e73a1cd2d7",
-    "newPassword": "milla"
+    "resetToken": "2953a64d-740f-4ee3-a22e-38e7ae21ea3b",
+    "newPassword": "milla789"
     
 }
 
@@ -155,17 +156,20 @@ token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRhbmllbHMiLCJlbWFpb
 ###delete user-soft delete
 DELETE http://localhost:4500/users/softdelete/61eefc5d-9de7-467c-bda4-1804b54be1ae
 token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRhbmllbHMiLCJlbWFpbCI6Implc3N5b3Blbm8yMDAwQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDA1JHk4eEQxRks0UWFxTC5ScFhtYXYvWWVXblBoMlVyNktqYmU5bkJEcWgwck40b1dreXdJc2cyIiwicGhvbmVfbnVtYmVyIjoxMjM0NTY3OCwiY3JlYXRlZF9hdCI6IjIwMjMtMDgtMjJUMjE6MDc6MTAuMDQ3WiIsInVwZGF0ZWRfYXQiOm51bGwsImNhcnRfaWQiOm51bGwsInJlc2V0VG9rZW4iOiI1YjM4MjIzZC1mZTU2LTQxMjYtYmIyOC02MmVhMWQwNWIzYjgiLCJyZXNldFRva2VuRXhwaXJ5IjoiMjAyMy0wOC0yNFQxMToyMToyOS40MjNaIiwiZGVsZXRlZF9hdCI6bnVsbCwiaWF0IjoxNjkyODc0MzY5LCJleHAiOjE2OTI5MTAzNjl9.6E80VEulawirccwBQzS1Ftz8Rp_j596HOYz6OLeKfAE
+
+
 ###delete user-permanent delete
-DELETE http://localhost:4500/users/permanentdelete/2150dfa5-0d41-422e-afd7-21d1e725335e
-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikphc29uIiwiZW1haWwiOiJvcGVubzIwMDBAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMDUkMlBWUVE3enF4Vy92ZWV4ZmxMUkFZdTlHUC9FMUU4RDNORFJVaUFQMDR6MEFTSElvNldCUFciLCJwaG9uZV9udW1iZXIiOjEyMzQ1Njc4LCJjcmVhdGVkX2F0IjoiMjAyMy0wOC0yMlQyMzowMzoxMi41MTNaIiwidXBkYXRlZF9hdCI6bnVsbCwiY2FydF9pZCI6bnVsbCwicmVzZXRUb2tlbiI6bnVsbCwicmVzZXRUb2tlbkV4cGlyeSI6bnVsbCwiZGVsZXRlZF9hdCI6bnVsbCwiaWF0IjoxNjkyNzM5NzEwLCJleHAiOjE2OTI3NDMzMTB9.zC2sa3hU49BsDtXyNckNecOHq0i9kkGb_64swWvJP-8
+DELETE http://localhost:4500/users/permanentdelete/61eefc5d-9de7-467c-bda4-1804b54be1ae
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRhbmllbHMiLCJlbWFpbCI6Implc3N5b3Blbm8yMDAwQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDA1JHk4eEQxRks0UWFxTC5ScFhtYXYvWWVXblBoMlVyNktqYmU5bkJEcWgwck40b1dreXdJc2cyIiwicGhvbmVfbnVtYmVyIjoxMjM0NTY3OCwiY3JlYXRlZF9hdCI6IjIwMjMtMDgtMjJUMjE6MDc6MTAuMDQ3WiIsInVwZGF0ZWRfYXQiOm51bGwsImNhcnRfaWQiOm51bGwsInJlc2V0VG9rZW4iOiI1YjM4MjIzZC1mZTU2LTQxMjYtYmIyOC02MmVhMWQwNWIzYjgiLCJyZXNldFRva2VuRXhwaXJ5IjoiMjAyMy0wOC0yNFQxMToyMToyOS40MjNaIiwiZGVsZXRlZF9hdCI6bnVsbCwiaWF0IjoxNjkyODc0MzY5LCJleHAiOjE2OTI5MTAzNjl9.6E80VEulawirccwBQzS1Ftz8Rp_j596HOYz6OLeKfAE
 
 
 ### UPDATING USER
 PUT http://localhost:4500/users/33c97805-0b62-423c-b954-bce6c73eac02
 Content-Type: application/json
 token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRhbmllbHMiLCJlbWFpbCI6Implc3N5b3Blbm8yMDAwQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDA1JHk4eEQxRks0UWFxTC5ScFhtYXYvWWVXblBoMlVyNktqYmU5bkJEcWgwck40b1dreXdJc2cyIiwicGhvbmVfbnVtYmVyIjoxMjM0NTY3OCwiY3JlYXRlZF9hdCI6IjIwMjMtMDgtMjJUMjE6MDc6MTAuMDQ3WiIsInVwZGF0ZWRfYXQiOm51bGwsImNhcnRfaWQiOm51bGwsInJlc2V0VG9rZW4iOiI1YjM4MjIzZC1mZTU2LTQxMjYtYmIyOC02MmVhMWQwNWIzYjgiLCJyZXNldFRva2VuRXhwaXJ5IjoiMjAyMy0wOC0yNFQxMToyMToyOS40MjNaIiwiZGVsZXRlZF9hdCI6bnVsbCwiaWF0IjoxNjkyODc0MzY5LCJleHAiOjE2OTI5MTAzNjl9.6E80VEulawirccwBQzS1Ftz8Rp_j596HOYz6OLeKfAE
+
 {
-    "username": "Sing",
+    "username": "SingNGAA",
     "email": "behlian@gmail.com",
     "phone_number": "2023744585"
 }
