@@ -21,19 +21,28 @@ const deleteUser = async (req, res) => {
 
         const pool = await mssql.connect(sqlConfig);
 
-        const result = await pool.request()
-            .input('id', mssql.VarChar, id)
-            .execute('deleteUserProc');
+        try {
+            const result = await pool.request()
+                .input('id', mssql.VarChar, id)
+                .execute('deleteUserProc');
 
-        if (result.rowsAffected[0] === 1) {
-            return res.status(200).json({ message: 'User deleted successfully' });
-        } else {
-            return res.status(404).json({ message: 'User not found' });
+            if (result.rowsAffected[0] === 1) {
+                return res.status(200).json({ message: 'User deleted successfully' });
+            } else {
+                return res.status(404).json({ message: 'User not found' });
+            }
+        } catch (error) {
+            // Check if the error is due to the foreign key constraint
+            if (error.message.includes('The DELETE statement conflicted with the REFERENCE constraint')) {
+                return res.status(400).json({ message: 'User cannot be deleted because they have products in their cart' });
+            } else {
+                return res.status(500).json({ error: error.message });
+            }
         }
     } catch (error) {
         return res.status(500).json({ error: error.message });
     }
-}
+};
 
 
 // soft delete for users
