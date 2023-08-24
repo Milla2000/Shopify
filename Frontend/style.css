@@ -96,8 +96,8 @@ header{
     margin: 2vh;
 }
 .productImage>img{
-    height: 20vh; 
-   width: 22vh;
+    height: 25vh; 
+   width: 30vh;
 }
 .addToCart{
     border-radius: 1vh;
@@ -221,15 +221,16 @@ h2{
         width: 60vw;
     }
     .productImage>img{
-        height: 10vh;
-        width: 10vh;
+        height: 23vh;
+        width: 25vh;
     }
     .actual-products{
-        grid-template-columns: repeat(3, 28%);
+        grid-template-columns: repeat(2, 45%);
+        gap: 2vh;
+        padding: 2vh;
     }
     footer>img, .nav>img{
-        height: 7vh;
-        width: 10vh;
+        height: 4vh;
     }
     .socials>img{
         height: 4vh;
@@ -238,4 +239,30 @@ h2{
     .nav>input{
         width: 25vh;
     }
+    .car-image{
+        margin-top: 2vh;
+    }
+    .car-image>img{
+        height: 30vh;
+        width: 30vh;
+    }
+    .addToCart{
+        width: 25vw;
+    }
+    .top-display{
+        gap: 2vh;
+    }
+    .caption{
+        width: 50%;
+        margin-top: 2vh;
+    }
+   .button{
+    width: 15vw;
+   }
+   h2{
+    padding: 0;
+   }
+   .product-item>h2{
+    padding-bottom: 0;
+   }
 }
