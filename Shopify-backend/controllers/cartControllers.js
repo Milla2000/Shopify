@@ -126,7 +126,7 @@ const checkout = async (req, res) => {
         }
 
         const cart_id = cartCheck.recordset[0].id;
-
+        // console.log(cart_id);
         // Calculate total price of items in the user's cart
         const totalPriceResult = await pool.request()
             .input("cart_id", mssql.VarChar, cart_id)
@@ -140,15 +140,10 @@ const checkout = async (req, res) => {
             .query("SELECT COUNT(*) AS item_count FROM cartItemsTable WHERE cart_id = @cart_id");
 
         const item_count = cartItemsCheck.recordset[0].item_count;
-
+        console.log(item_count);
         if (item_count === 0) {
             return res.status(400).json("You have no products in your cart, Kindly add products to your cart to make a purchase");
         }
-
-        // Update num_items in productsTable and remove items from cartItemsTable
-        await pool.request()
-            .input("cart_id", mssql.VarChar, cart_id)
-            .execute("checkoutProc"); // Call a stored procedure to handle these operations
 
         // Fetch the product name from the cartItemsTable
         const productNameResult = await pool.request()
@@ -156,7 +151,14 @@ const checkout = async (req, res) => {
             .query("SELECT TOP 1 product_name FROM cartItemsTable WHERE cart_id = @cart_id");
 
         const product_name = productNameResult.recordset[0].product_name;
-              console.log(product_name);
+        console.log(product_name);
+
+        // Update num_items in productsTable and remove items from cartItemsTable
+        await pool.request()
+            .input("cart_id", mssql.VarChar, cart_id)
+            .execute("checkoutProc"); // Call a stored procedure to handle these operations
+
+        
         // Insert order details into the ordersTable
         await pool.request()
             .input("user_id", mssql.VarChar, user_id)

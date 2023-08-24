@@ -15,3 +15,5 @@ SELECT * FROM cartItemsTable;
 DELETE FROM cartItemsTable;
 
 DROP TABLE IF EXISTS cartItemsTable;
+
+SELECT product_name FROM cartItemsTable

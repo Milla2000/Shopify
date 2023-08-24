@@ -77,8 +77,7 @@ const userLogin = async (req, res) => {
     }
 
     const {  id ,  role, ...payload } = user;
-    const token = jwt.sign(payload, process.env.SECRET, { expiresIn: "3600s" });
-
+    const token = jwt.sign(payload, process.env.SECRET, { expiresIn: "36000s" }); 
     let message = "Logged in";
 
     if (user.role === "admin") {
