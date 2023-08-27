@@ -4,8 +4,8 @@ Content-Type: application/json
 
 {
    
-    "username": "ngatia111111",
-    "email":"ngatia111111@gmail.com",
+    "username": "ngatia111111141",
+    "email":"jesso@gmail.com",
     "password":"12345678",
     "phone_number": "12345678"
 }
@@ -16,7 +16,7 @@ POST  http://localhost:4500/users/login
 Content-Type: application/json
 
 {
-    "email":"ngatia111111@gmail.com",
+    "email":"jesso@gmail.com",
     "password":"12345678"
 }
 
@@ -48,8 +48,8 @@ GET http://localhost:4500/products
 
 
 ### GET ONE PRODUCTS
-GET http://localhost:4500/products/2f84cb0d-f82b-4d48-b951-296f367a84ed
-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRhbmllbHMiLCJlbWFpbCI6Implc3N5b3Blbm8yMDAwQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDA1JHk4eEQxRks0UWFxTC5ScFhtYXYvWWVXblBoMlVyNktqYmU5bkJEcWgwck40b1dreXdJc2cyIiwicGhvbmVfbnVtYmVyIjoxMjM0NTY3OCwiY3JlYXRlZF9hdCI6IjIwMjMtMDgtMjJUMjE6MDc6MTAuMDQ3WiIsInVwZGF0ZWRfYXQiOm51bGwsImNhcnRfaWQiOm51bGwsInJlc2V0VG9rZW4iOiI1YjM4MjIzZC1mZTU2LTQxMjYtYmIyOC02MmVhMWQwNWIzYjgiLCJyZXNldFRva2VuRXhwaXJ5IjoiMjAyMy0wOC0yNFQxMToyMToyOS40MjNaIiwiZGVsZXRlZF9hdCI6bnVsbCwiaWF0IjoxNjkyODc0MzY5LCJleHAiOjE2OTI5MTAzNjl9.6E80VEulawirccwBQzS1Ftz8Rp_j596HOYz6OLeKfAE
+GET http://localhost:4500/products/587cc176-b313-468a-81da-9df28fb3f1de
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5nYXRpYTExMTExMTE0MSIsImVtYWlsIjoiamVzc29AZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMDUkTUI4MGVkaUN6LkNYaG9CUUJJT2Y0dXlVdTdhVk9Cck9yQS51VnFLb21vZjY2bzF5bnZ6YlciLCJwaG9uZV9udW1iZXIiOjEyMzQ1Njc4LCJjcmVhdGVkX2F0IjoiMjAyMy0wOC0yN1QxNTo1MToxOS44ODNaIiwidXBkYXRlZF9hdCI6bnVsbCwiY2FydF9pZCI6bnVsbCwicmVzZXRUb2tlbiI6bnVsbCwicmVzZXRUb2tlbkV4cGlyeSI6bnVsbCwiZGVsZXRlZF9hdCI6bnVsbCwiaWF0IjoxNjkzMTU0MDUzLCJleHAiOjE2OTMxOTAwNTN9.OrMdrIb8GIklUKSjv7XkO1-XyWDczKhhAUqgqqnILEI
 ### UPDATING PRODUCT
 PUT http://localhost:4500/products/2f84cb0d-f82b-4d48-b951-296f367a84ed
 Content-Type: application/json
@@ -76,7 +76,7 @@ token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkphVEptbW5hZHVvbmciL
 
 {
   
-  "user_id": "fccfde4d-c301-4bc6-8da7-56df731558fc",
+  "user_id": "e05ad994-b084-48ba-a6b5-a97afa99522b",
   "product_id": "678f42e8-0fcd-4a8d-b763-11ccc147a469"     
 
 }
@@ -133,13 +133,9 @@ Content-Type: application/json
 # token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVkNTNkMWYzLTUyNDItNDIwYi1iZjQyLTAyMzA0NmExZDhhOSIsImZ1bGxfbmFtZSI6Ik1pbGxhIFdhY2hpcmEgU2lsb21hIiwiZW1haWwiOiJpZ25pdDNncmFwaGljc0BnbWFpbC5jb20iLCJhc3NpZ25lZFByb2plY3QiOm51bGwsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY5MTY2MDM0OCwiZXhwIjoxNjkxNjYzOTQ4fQ.LXJkVJhFNpGESbG79zli1_uPcUGLRTzVLzbZ53H-cEg
 
 ### get all user items on cart 
-GET http://localhost:4500/cart/cart-items
+GET http://localhost:4500/cart/cart-items/745bcdf8-6d2d-4f67-9887-2d29038374db
 token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkphVEptbW5hZHVvbmciLCJlbWFpbCI6ImphZHVub21tbVRuZ0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQwNSQuZDkzSFEudUhBT1psTTZib1FBZ1V1TktGb0dvbURFRFJIWUIub3F4ZlU1dVdLUjZZLkZEYSIsInBob25lX251bWJlciI6MTIzNDU2NzgsImNyZWF0ZWRfYXQiOiIyMDIzLTA4LTI3VDE0OjI1OjIxLjQ5M1oiLCJ1cGRhdGVkX2F0IjpudWxsLCJjYXJ0X2lkIjpudWxsLCJyZXNldFRva2VuIjpudWxsLCJyZXNldFRva2VuRXhwaXJ5IjpudWxsLCJkZWxldGVkX2F0IjpudWxsLCJpYXQiOjE2OTMxMzU1NjAsImV4cCI6MTY5MzE3MTU2MH0.CiBbQp6afPI3p7f_IV1tqdpZPgnpSfp9lVM1peA2cxs
-Content-Type: application/json
 
-{
-    "userId": "745bcdf8-6d2d-4f67-9887-2d29038374db" 
-}
 
 ### get all user items on cartitems table for admin
 GET http://localhost:4500/users/allcartitems
