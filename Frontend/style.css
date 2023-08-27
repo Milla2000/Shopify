@@ -195,15 +195,16 @@ h2{
 .hide {
     display: none !important;
 }
-
-
 .edit-container{
     background-color: rgba(34, 152, 203, 0.3);
-    margin-left: 70vh;
-    margin-right: 70vh;
+    /* margin-left: 70vh;
+    margin-right: 70vh; */
     border-radius: 2vh;
 }
-
+.user-table>tr>td{
+    padding-top: 4vh;
+    padding-bottom: 4vh;
+}
 @media screen and (max-width: 768px){
     *{
         font-size: 10px;
@@ -264,5 +265,8 @@ h2{
    }
    .product-item>h2{
     padding-bottom: 0;
+   }
+   .cart{
+    padding: 2vh;
    }
 }
