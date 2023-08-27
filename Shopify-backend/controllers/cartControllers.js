@@ -93,7 +93,7 @@ const addToCart = async (req, res) => {
 
 const getCartItems = async (req, res) => {
     try {
-        // const userId = req.user.id; // Assuming you have user information in req.user
+        
         const userId = req.params.userId; 
         console.log("userId:", userId);
         const pool = await mssql.connect(sqlConfig);
@@ -158,7 +158,7 @@ const checkout = async (req, res) => {
         // Update num_items in productsTable and remove items from cartItemsTable
         await pool.request()
             .input("cart_id", mssql.VarChar, cart_id)
-            .execute("checkoutProc"); // Call a stored procedure to handle these operations
+            .execute("checkoutProc"); 
 
         
         // Insert order details into the ordersTable
@@ -166,7 +166,7 @@ const checkout = async (req, res) => {
             .input("user_id", mssql.VarChar, user_id)
             .input("product_name", mssql.VarChar, product_name)
             .input("total_price", mssql.Decimal, total_price)
-            .execute("insertOrderProc"); // Call a stored procedure to insert into ordersTable
+            .execute("insertOrderProc"); 
 
         return res.status(200).json({
             message: "Checkout completed successfully",
@@ -176,6 +176,41 @@ const checkout = async (req, res) => {
         return res.status(500).json({ error: error.message   });
     }
 };
+
+const removeFromCart = async (req, res) => {
+    try {
+        const { user_id, product_id } = req.body;
+
+        const pool = await mssql.connect(sqlConfig);
+
+        // Check if the product is in the user's cart
+        const cartItem = await pool.request()
+            .input("user_id", mssql.VarChar, user_id)
+            .input("product_id", mssql.VarChar, product_id)
+            .query("SELECT id FROM cartItemsTable WHERE cart_id IN (SELECT id FROM cartsTable WHERE user_id = @user_id) AND product_id = @product_id");
+
+        if (cartItem.recordset.length === 0) {
+            return res.status(404).json({ error: "Product not found in user's cart" });
+        }
+        // Call stored procedure to remove product from cart and update num_items
+        await pool.request()
+            .input("user_id", mssql.VarChar, user_id)
+            .input("product_id", mssql.VarChar, product_id)
+            .execute("removeProductFromCartProc");
+
+        // Increase num_items for the removed product
+        await pool.request()
+            .input("product_id", mssql.VarChar, product_id)
+            .execute("increaseNumItemsProc");
+
+        return res.status(200).json({
+            message: "Product removed from cart successfully"
+        });
+    } catch (error) {
+        return res.status(500).json({ error: error.message });
+    }
+}
+
 
 
 
@@ -188,5 +223,6 @@ const checkout = async (req, res) => {
 module.exports = {
     addToCart,
     getCartItems,
-    checkout
+    checkout,
+    removeFromCart
 };
