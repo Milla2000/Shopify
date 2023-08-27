@@ -1,5 +1,15 @@
+const checkoutButton = document.getElementById("checkout-button");
+const cartTableBody = document.getElementById("cart-table-body");
+const totalPriceDisplay = document.getElementById("total-price");
+const toast = document.getElementById("toast");
+const toastText = document.getElementById("toast-text");
+
+
+
 const token = localStorage.token;
 const userId = localStorage.id;
+
+
 
 
 function cart() {
@@ -13,8 +23,7 @@ function cart() {
     })
         .then(response => response.json())
         .then(data => {
-            const cartTableBody = document.getElementById("cart-table-body");
-            const totalPriceDisplay = document.getElementById("total-price");
+            
             let totalPrice = 0;
 
             // Clear existing table rows
@@ -53,10 +62,21 @@ function cart() {
         });
 }
 
+// Function to show the checkout button
+function showCheckoutButton() {
+    const checkoutButton = document.getElementById("checkout-button");
+    checkoutButton.style.display = "block";
+}
+
+// Function to hide the checkout button
+function hideCheckoutButton() {
+    const checkoutButton = document.getElementById("checkout-button");
+    checkoutButton.style.display = "none";
+}
+
 
 function showToast(message) {
-    const toast = document.getElementById("toast");
-    const toastText = document.getElementById("toast-text");
+    
     toast.style.display = "block";
     toastText.textContent = message;
     toast.style.right = "20px"; // Show the toast
@@ -89,6 +109,71 @@ async function removeFromCart(product_id) {
         alert(data.error);
     }
 }
+
+
+checkoutButton.addEventListener("click", async () => {
+    try {
+        const cartTotalPrice = parseFloat(document.getElementById("total-price").textContent.split(" ")[3]); // Extract total price from the displayed text
+
+        const confirmationMessage = `
+            You are about to pay Ksh ${cartTotalPrice.toFixed(2)} to Shoppie.
+            Do you want to proceed?
+        `;
+
+        const modal = document.createElement("div");
+        modal.className = "confirmation-modal";
+        modal.innerHTML = `
+            <div class="modal-content">
+                <img src="./Images/logo.png" alt="logo">
+                <p>${confirmationMessage}</p>
+                <button class="confirm-button">Confirm</button>
+                <button class="cancel-button">Cancel</button>
+            </div>
+        `;
+
+        const confirmButton = modal.querySelector(".confirm-button");
+        const cancelButton = modal.querySelector(".cancel-button");
+
+        cancelButton.addEventListener("click", () => {
+            document.body.removeChild(modal);
+        });
+
+        confirmButton.addEventListener("click", async () => {
+            try {
+                document.body.removeChild(modal);
+                const checkoutResponse = await fetch("http://localhost:4500/cart/checkout", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "token": token
+                    },
+                    body: JSON.stringify({ user_id: userId })
+                });
+
+                const checkoutData = await checkoutResponse.json();
+                cart();
+
+                if (checkoutResponse.ok) {
+                    showToast("Payment successful");
+                    window.location.href = './yourProducts.html';
+                } else {
+                    alert(checkoutData.error);
+                }
+            } catch (error) {
+                console.error("Error during checkout:", error);
+                alert("An error occurred during checkout.");
+            }
+        });
+
+        document.body.appendChild(modal);
+    } catch (error) {
+        console.error("Error preparing confirmation:", error);
+        alert("An error occurred while preparing confirmation.");
+    }
+});
+
+
+
 
 // Call the cart function when the page loads
 cart();
