@@ -7,7 +7,7 @@ const { getCartItems, addToCart, checkout } = require('../controllers/cartContro
 cartRouter = Router();
 cartRouter.post('/checkout', verifyToken, checkout);
 cartRouter.post('/add-to-cart', verifyToken, addToCart);
-cartRouter.get('/cart-items', verifyToken, getCartItems);
+cartRouter.get('/cart-items/:userId', verifyToken, getCartItems);
 
 
 
