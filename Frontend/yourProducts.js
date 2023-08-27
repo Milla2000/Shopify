@@ -1,6 +1,7 @@
 const token = localStorage.token;
 const user_id = localStorage.id;
 
+
 const addToCart = async (product_id) => {
     const response = await fetch("http://localhost:4500/cart/add-to-cart", {
         method: "POST",
@@ -11,11 +12,27 @@ const addToCart = async (product_id) => {
         body: JSON.stringify({user_id, product_id})
     });
 
+
+    function showToast(message) {
+        const toast = document.getElementById("toast");
+        const toastText = document.getElementById("toast-text");
+        toast.style.display = "block";
+        toastText.textContent = message;
+        toast.style.right = "20px"; // Show the toast
+
+        setTimeout(() => {
+            toast.style.display = "none"; // Hide the toast
+            // toast.style.left = "-250px"; // Hide the toast
+        }, 1000); // Change 2000 to the desired duration in milliseconds
+    }
+
     const data = await response.json();
     if (response.ok) {
-        alert("Product added to cart successfully");
+        // alert("Product added to cart successfully");
+        showToast("Product added to cart successfully");
     } else {
-        alert(data.error);
+        // alert(data.error);
+        showToast(data.error);
     }
 };
 
@@ -60,6 +77,8 @@ const yourProducts = () => {
             console.error('An error occurred:', error);
         });
 };
+
+
 
 function myFunction() {
     // Declare variables

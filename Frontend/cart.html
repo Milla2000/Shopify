@@ -10,6 +10,10 @@
 </head>
 
 <body>
+    <div id="toast" class="toast" style="display: none;">
+        <div id="toast-text" class="toast-text"></div>
+        <!-- <div id="loader" class="loader"></div> -->
+    </div>
     <header>
         <div class="nav">
             <img src="./Images/logo.png" alt="logo">
@@ -23,11 +27,25 @@
     </header>
     <h2 style="color: rgba(34, 152, 203, 1);">Your Cart</h2>
     <div class="cart-table">
-        <table id="cart-table">
-            <!-- Table rows will be populated by JavaScript -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="cart-table-body">
+                <!-- Table rows will be populated by JavaScript -->
+            </tbody>
         </table>
+        <p id="total-price" style="text-align: center; margin-top: 8px;">Total Price: Ksh 0.00</p>
+        <button id="checkout-button" style="display: block; margin-left: 50%; margin-top: 10px;">Checkout</button>
     </div>
+
     <script src="./cart.js" defer></script>
+    
+
     <footer>
         <img src="./Images/logo.png" alt="logo">
         <div class="socials">
