@@ -42,7 +42,8 @@ const addToCart = async (req, res) => {
 
         if (existingCart.recordset.length === 0) {
             // Create a new cart if it doesn't exist
-            cart_id = v4(); // Generate a new cart_id
+            cart_id = v4();
+            console.log(cart_id);
             await pool.request()
                 .input("cart_id", mssql.VarChar, cart_id)
                 .input("user_id", mssql.VarChar, user_id)
@@ -84,7 +85,8 @@ const addToCart = async (req, res) => {
     } catch (error) {
         return res.status(500).json({ error: error.message });
     }
-};
+}
+
 
 
 
