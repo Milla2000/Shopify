@@ -17,6 +17,12 @@ const registerUser = async (req, res) => {
     const id = v4();
 
     const { username, email, password, phone_number } = req.body;
+
+    if (!username || !email || !password || !phone_number) {
+      return res.status(400).json({
+        error: "Please input all values",
+      });
+    }
     
     const { error } = registerSchema.validate(req.body);
 
@@ -52,6 +58,11 @@ const userLogin = async (req, res) => {
     const { email, password } = req.body;
 
     const { error } = loginSchema.validate(req.body);
+    if (!email || !password) {
+      return res.status(400).json({
+        error: "Please input all values",
+      });
+    }
 
     if (error) {
       return res.status(422).json(error.details);
