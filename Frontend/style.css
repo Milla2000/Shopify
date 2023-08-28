@@ -279,6 +279,7 @@ h2{
     justify-content: center;
     padding: 5vh;
     gap: 5vh;
+    flex-wrap: wrap;
 }
 .show {
     display: flex !important; /* !important is used to override other display rules */

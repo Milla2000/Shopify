@@ -25,9 +25,10 @@ function cart() {
         .then(data => {
             
             let totalPrice = 0;
+            const tableBody = document.querySelector('.cart-table');
 
             // Clear existing table rows
-            cartTableBody.innerHTML = "";
+            tableBody.innerHTML = "";
 
             // Populate the table with cart items
             data.cartItems.forEach(item => {
@@ -36,12 +37,12 @@ function cart() {
                 <td>${item.product_name}</td>
                 <td>Ksh ${item.price}</td>
                 <td>
-                    <button class="remove-from-cart" data-product-id="${item.product_id}">Remove from Cart</button>
+                    <button class="button" data-product-id="${item.product_id}">Remove</button>
                 </td>
             `;
-                cartTableBody.appendChild(row);
+                tableBody.appendChild(row);
 
-                const removeButton = row.querySelector(".remove-from-cart");
+                const removeButton = row.querySelector(".button");
                 removeButton.addEventListener("click", () => {
                     removeFromCart(item.product_id);
                 });
