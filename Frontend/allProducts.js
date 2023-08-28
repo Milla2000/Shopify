@@ -54,6 +54,19 @@ function products() {
         });
 }
 
+function showToast(message) {
+
+    toast.style.display = "block";
+    toastText.textContent = message;
+    toast.style.right = "20px"; // Show the toast
+
+    setTimeout(() => {
+        toast.style.display = "none"; // Hide the toast
+        // toast.style.left = "-250px"; // Hide the toast
+    }, 1000); // Change 2000 to the desired duration in milliseconds
+}
+
+
 function deleteProduct(id) {
     const token = localStorage.token;
 
@@ -66,6 +79,7 @@ function deleteProduct(id) {
                 "token": token
             },
         }
+        
     )
     .catch((error) => {
         // Display error message
@@ -74,11 +88,12 @@ function deleteProduct(id) {
     })
     .then((res) => {
         if (res && res.data && res.data.message === "Product deleted successfully") {
+            window.location.reload();
             // Display success alert
             alert("Product deleted successfully!");
 
-            // Refresh the product list after deletion
-            products();
+            // Reload the page after deletion
+            
         } 
     });
 }

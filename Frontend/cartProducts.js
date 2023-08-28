@@ -15,57 +15,56 @@ function cartItems() {
         .then((res) => {
             const result = res.data;
             console.log(result);
-            
+
             const tableBody = document.querySelector('.cart-table'); // Select the table body element
 
-            result.cartItems.forEach(cartItem => {
-                
-                const newRow = document.createElement('tr');
-                newRow.innerHTML = `
-                    <td>${cartItem.username}</td>
-                    <td>${cartItem.user_id}</td>
-                    <td>${cartItem.phone_number}</td>
-                    <td>
-                        <div class="actions">
-                            <button class="button remove-button" data-id="${cartItem.id}" style="background-color: rgba(203, 34, 34, 1);">Remove</button>
-                        </div>
-                    </td>
-                `;
+            if (result && Array.isArray(result.cartItems)) {
+                result.cartItems.forEach(cartItem => {
 
-                tableBody.appendChild(newRow); // Append the new row to the table body
-            });
+                    const newRow = document.createElement('tr');
+                    newRow.innerHTML = `
+                        <td>${cartItem.username}</td>
+                        <td>${cartItem.product_name}</td>
+                        <td>${cartItem.product_price}</td>
+                        <td>
+                            <div class="actions">
+                                <button class="button remove-button" data-id="${cartItem.id}" style="background-color: rgba(203, 34, 34, 1);">Remove</button>
+                            </div>
+                        </td>
+                    `;
 
-            // Add event listener to remove and edit buttons
+                    tableBody.appendChild(newRow); // Append the new row to the table body
+                });
+            } else {
+                console.error('Invalid response format or cartItems is not an array');
+            }
+
+            // Add event listener to remove buttons
             tableBody.addEventListener('click', (event) => {
-                function deleteUser(userId) {
-                    const token = localStorage.token;
-                
-                    axios.delete(`http://localhost:4500/users/softdelete/${userId}`, {
+                function removeCartItem(cartItemId) {
+                    axios.delete(`http://localhost:4500/users/removecartitem/${cartItemId}`, {
                         headers: {
                             "Accept": "application/json",
                             "Content-type": "application/json",
                             "token": token
                         }
                     })
-                    .then((res) => {
-                        console.log("User deleted:", res.data);
-                        alert("User deleted successfully!");
-                        // You might want to refresh the user list after deletion
-                        users();
-                    })
-                    .catch((error) => {
-                        console.error('An error occurred:', error);
-                    });
+                        .then((res) => {
+                            console.log("Cart item removed:", res.data);
+                            alert("Cart item removed successfully!");
+                            // Refresh the cart items after removal
+                            cartItems();
+                        })
+                        .catch((error) => {
+                            console.error('An error occurred:', error);
+                        });
                 }
-                
+
                 if (event.target.classList.contains('remove-button')) {
-                    const id = event.target.getAttribute('data-id');
-                    if (confirm('Are you sure you want to delete this user?')) {
-                        deleteUser(id);
+                    const cartItemId = event.target.getAttribute('data-id');
+                    if (confirm('Are you sure you want to remove this item from the cart?')) {
+                        removeCartItem(cartItemId);
                     }
-                } else if (event.target.classList.contains('edit-button')) {
-                    const id = event.target.getAttribute('data-id');
-                    editUser(id);
                 }
             });
         })

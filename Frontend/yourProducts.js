@@ -3,6 +3,12 @@ const user_id = localStorage.id;
 
 
 const addToCart = async (product_id) => {
+
+    if (!token) {
+        alert("Please register/login to add products to the cart.");
+        return; // Prevent further execution of the function
+    }
+    
     const response = await fetch("http://localhost:4500/cart/add-to-cart", {
         method: "POST",
         headers: {
