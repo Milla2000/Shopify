@@ -25,6 +25,7 @@ function cart() {
         .then(data => {
             
             let totalPrice = 0;
+            const tableBody = document.querySelector('.cart-table');
 
             // Clear existing table rows
             cartTableBody.innerHTML = "";
