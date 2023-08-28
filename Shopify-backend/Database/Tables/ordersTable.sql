@@ -8,3 +8,5 @@ CREATE TABLE ordersTable (
 
 
 SELECT * FROM ordersTable;
+
+DROP TABLE IF EXISTS ordersTable;
