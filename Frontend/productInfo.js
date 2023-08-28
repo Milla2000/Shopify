@@ -29,7 +29,8 @@ function productInfo() {
                     <h3>${product.name}</h3>
                     <p>${product.description ? product.description : 'No description available.'}</p>
                     <h3>Ksh: ${product.price ? product.price : 'Price not available.'}</h3>
-                    <button class="addToCart" data-product='{"id": "${product.id}", "price": "${product.price}", "image": "${product.image}", "description": "${product.description}", "name": "${product.name}"}'>Add to cart</button>          
+                    <button class="addToCart" data-product-id="${product.id}" style="color: #fff;">Add to cart</button>
+                            
                 </div>
             `;
 

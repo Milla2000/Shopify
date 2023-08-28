@@ -51,6 +51,8 @@ function users() {
                         console.log("User deleted:", res.data);
                         alert("User deleted successfully!");
                         // You might want to refresh the user list after deletion
+                        //reload page here
+                        window.location.reload();
                         users();
                     })
                     .catch((error) => {
