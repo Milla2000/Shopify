@@ -34,6 +34,10 @@ VALUES (
     GETDATE()                 
 );
 
+UPDATE usersTable
+SET role = 'admin'
+WHERE email = 'jesso@gmail.com';
+
 SELECT * FROM usersTable;
 
 UPDATE usersTable

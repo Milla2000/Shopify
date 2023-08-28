@@ -1,11 +1,7 @@
 const mssql = require("mssql");
-// const bcrypt = require("bcrypt");
-// const jwt = require("jsonwebtoken");
 const { v4 } = require("uuid");
 const { sqlConfig } = require("../config/config");
-// const { registerSchema, loginSchema } = require("../validators/validators");
 const dotenv = require("dotenv");
-const { Console } = require("console");
 dotenv.config();
 
 
@@ -25,13 +21,13 @@ const addToCart = async (req, res) => {
         }
 
         // Check if the product exists
-        const productCheck = await pool.request()
-            .input("product_id", mssql.VarChar, product_id)
-            .query("SELECT id FROM productsTable WHERE id = @product_id");
+        // const productCheck = await pool.request()
+        //     .input("product_id", mssql.VarChar, product_id)
+        //     .query("SELECT id FROM productsTable WHERE id = @product_id");
 
-        if (productCheck.recordset.length === 0) {
-            return res.status(404).json({ error: "Product not found" });
-        }
+        // if (productCheck.recordset.length === 0) {
+        //     return res.status(404).json({ error: "Product not found" });
+        // }
 
         // Check if a cart exists for the user
         const existingCart = await pool.request()

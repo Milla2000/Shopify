@@ -93,7 +93,7 @@ const updateProduct = async (req, res) => {
     const currentTime = new Date();
     const result = await pool
       .request()
-      .input("id", mssql.VarChar, id)  // Change to mssql.VarChar
+      .input("id", mssql.VarChar, id)  
       .input("name", mssql.VarChar, name)
       .input("description", mssql.VarChar, description)
       .input("price", mssql.Decimal, price)
