@@ -22,7 +22,7 @@ function cartItems() {
                 
                 const newRow = document.createElement('tr');
                 newRow.innerHTML = `
-                    <td>${cartItem.id}</td>
+                    <td>${cartItem.username}</td>
                     <td>${cartItem.user_id}</td>
                     <td>${cartItem.phone_number}</td>
                     <td>
