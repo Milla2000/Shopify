@@ -114,11 +114,15 @@ form{
     padding-bottom: 3vh;
 }
 input{
+    padding: 1vh;
     height: 5vh;
     width: 20vw;
     border-radius: 1vh;
     outline: none;
     border: rgba(34, 152, 203, 1);
+}
+textarea{
+    width: 45vh;
 }
 button[type='submit']{
     border-radius: 1vh;
@@ -309,6 +313,9 @@ h2{
         margin-right: 7vh;
     }
     input{
+        width: 60vw;
+    }
+    textarea{
         width: 60vw;
     }
     button[type='submit']{
