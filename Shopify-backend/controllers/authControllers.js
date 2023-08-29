@@ -78,9 +78,14 @@ const userLogin = async (req, res) => {
     ).recordset[0];
 
     if (!user) {
-      return res.status(404).json({ message: "Email does not exist" });
+      return res.status(404).json({ message: "Email does not exist in the system, Please use a valid email address" });
     }
-
+    
+    // Check if the account is deactivated (soft deleted)
+    if (user.deleted_at !== null) {
+      return res.status(403).json({ message: "Account is deactivated" });
+    }
+ 
     const comparePwd = await bcrypt.compare(password, user.password);
 
     if (!comparePwd) {
@@ -96,7 +101,11 @@ const userLogin = async (req, res) => {
     }
 
     return res.status(200).json({ id , role,  message,  token });
+
   } catch (error) {
+    if (error.message.includes("duplicate key value")) {
+      return res.status(400).json({ message: "Email already exists" });
+    }
     return res.status(500).json({ error: error.message });
   }
 };
