@@ -40,4 +40,25 @@ function indexProducts() {
         });
 }
 
+function myFunction() {
+    // Declare variables
+    var input, filter, ul, productItems, p, i, txtValue;
+    input = document.getElementById('searchInput');
+    filter = input.value.toUpperCase();
+    ul = document.querySelector('.actual-products');
+    productItems = ul.getElementsByClassName('product-item');
+
+    for (i = 0; i < productItems.length; i++) {
+        p = productItems[i].querySelector("p:nth-child(2)"); // Select the second <p> element within .product-item
+        txtValue = p.textContent || p.innerText;
+
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            productItems[i].classList.add('show');
+            productItems[i].classList.remove('hide');
+        } else {
+            productItems[i].classList.remove('show');
+            productItems[i].classList.add('hide');
+        }
+    }
+}
 indexProducts();
