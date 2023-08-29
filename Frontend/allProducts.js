@@ -1,3 +1,32 @@
+const toast = document.getElementById("toast");
+const toastText = document.getElementById("toast-text");
+function showConfirmationModal(confirmationMessage, confirmCallback) {
+    const modal = document.createElement("div");
+    modal.className = "confirmation-modal";
+    modal.innerHTML = `
+        <div class="modal-content">
+            <p>${confirmationMessage}</p>
+            <button class="confirm-button">Confirm</button>
+            <button class="cancel-button">Cancel</button>
+        </div>
+    `;
+
+    const confirmButton = modal.querySelector(".confirm-button");
+    const cancelButton = modal.querySelector(".cancel-button");
+
+    cancelButton.addEventListener("click", () => {
+        document.body.removeChild(modal);
+    });
+
+    confirmButton.addEventListener("click", () => {
+        document.body.removeChild(modal);
+        confirmCallback(); // Call the provided callback function
+    });
+
+    document.body.appendChild(modal);
+}
+
+
 function products() {
     const token = localStorage.token;
 
@@ -17,10 +46,11 @@ function products() {
             console.log(result);
             // newRow = ""
             const tableBody = document.querySelector('.cart-table'); // Select the table body element
-
+            tableBody.innerHTML = "";
             result.products.forEach(product => {
                 
                 const newRow = document.createElement('tr');
+                
                 newRow.innerHTML = `
                     <td><img src="${product.image}" alt="Product Image"></td>
                     <td>${product.name}</td>
@@ -39,10 +69,13 @@ function products() {
             // Add event listener to remove and edit buttons
             tableBody.addEventListener('click', (event) => {
                 if (event.target.classList.contains('remove-button')) {
+                    
                     const id = event.target.getAttribute('data-id');
-                    if (confirm('Are you sure you want to delete this product?')) {
+                    const confirmationMessage = "Are you sure you want to delete this product?";
+                    showConfirmationModal(confirmationMessage, () => {
                         deleteProduct(id);
-                    }
+                    });
+
                 } else if (event.target.classList.contains('edit-button')) {
                     const id = event.target.getAttribute('data-id');
                     editProduct(id);
@@ -58,14 +91,13 @@ function showToast(message) {
 
     toast.style.display = "block";
     toastText.textContent = message;
-    toast.style.right = "20px"; // Show the toast
+    toast.style.right = "40px"; // Show the toast
 
     setTimeout(() => {
         toast.style.display = "none"; // Hide the toast
-        // toast.style.left = "-250px"; // Hide the toast
-    }, 1000); // Change 2000 to the desired duration in milliseconds
+        // toast.style.left = "-50px"; // Hide the toast
+    }, 3000); // Change 2000 to the desired duration in milliseconds
 }
-
 
 function deleteProduct(id) {
     const token = localStorage.token;
@@ -79,23 +111,34 @@ function deleteProduct(id) {
                 "token": token
             },
         }
-        
     )
-    .catch((error) => {
-        // Display error message
-        // console.error('An error occurred:', error);
-        alert("Product cant be deleted because it is in a cart.");
-    })
-    .then((res) => {
-        if (res && res.data && res.data.message === "Product deleted successfully") {
-            window.location.reload();
-            // Display success alert
-            alert("Product deleted successfully!");
-
-            // Reload the page after deletion
-            
-        } 
-    });
+        .then((res) => {
+            if (res && res.data) {
+                if (res.data.message === "Product deleted successfully") {
+                    
+                    // Display success toast
+                    showToast("Product deleted successfully!");
+                    // products()
+                    // Reload the page after deletion
+                    setTimeout(() => {
+                        window.location.reload();// Hide the toast
+                        // toast.style.left = "-50px"; // Hide the toast
+                    }, 600); 
+                    
+                    
+                } else if (res.data.message === "Product cannot be deleted as it is added to a cart.") {
+                    // Display cart-related toast
+                    showToast("Product cannot be deleted because it is in a cart.");
+                } else if (res.data.message === "Product not found") {
+                    // Display not found toast
+                    showToast("Product not found.");
+                }
+            }
+        })
+        .catch((error) => {
+            // Handle other errors, such as network errors
+            console.error('An error occurred:', error);
+        });
 }
 
 
