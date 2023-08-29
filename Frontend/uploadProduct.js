@@ -56,7 +56,20 @@ uploadProduct.addEventListener('submit', (e) => {
             }
         ).then((res) => {
             console.log(res.data);
-            window.location.href = "./adminAllProducts.html";
+
+            // Display a success message
+            const successMessage = document.createElement('p');
+            successMessage.textContent = 'Product uploaded successfully!';
+            successMessage.style.color = 'green';
+            uploadProduct.appendChild(successMessage);
+
+            // Redirect to the adminAllProducts.html page
+            setTimeout(() => {
+                window.location.href = "./adminAllProducts.html";
+            }, 1500); // Redirect after 1.5 seconds
+        }).catch((error) => {
+            // Handle error
+            console.error('An error occurred:', error);
         });
     }
 });
