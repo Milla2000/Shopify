@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Shoppie: Upload Product</title>
+</head>
+<header>
+    <div class="nav">
+            <img src="./Images/logo.png" alt="logo">
+            <input type="text" placeholder="Search any product" style="background-color: rgba(34, 152, 203, 0.2);">
+            <h4>Shop</h4>
+            <img src="./Images/mdi_cart.png" alt="cart">
+            <h3>Admin</h3>
+            <a href="./login.html">
+                <button class="button">Log Out</button>
+            </a>
+        </div>
+</header>
+<body>
+    <h2 style="color: rgba(34, 152, 203, 1);">
+        <a href="./uploadProduct.html">
+            <button class="button">Upload Product</button>
+        </a>
+        <a href="./adminAllProducts.html">
+            <button class="button">All Products</button>
+        </a>
+        <a href="./allUsers.html">
+            <button class="button">All Users</button>
+        </a>
+        <!-- <a href="./cartProducts.html">
+            <button class="button">Cart Items</button>
+        </a> -->
+    </h2>
+    <h2 style="color: rgba(34, 152, 203, 1);">Upload Product</h2>
+    <div class="upload">
+        <p class="regError" style="background-color: rgba(249, 89, 89, 0.352);"></p>
+        <form action="" id="uploadProduct">
+            <input type="text" placeholder="Name" style="border: 1px solid rgba(34, 152, 203, 1);" class="name">
+            <input type="text" placeholder="Product Category" style="border: 1px solid rgba(34, 152, 203, 1);" class="category">
+            <textarea name="Product Description" id="" cols="35" rows="10" placeholder="Product Description" style="border: 1px solid rgba(34, 152, 203, 1); border-radius: 1vh;" class="description"></textarea>
+            <input type="text" placeholder="Number of Products" style="border: 1px solid rgba(34, 152, 203, 1);" class="num_items">
+            <input type="number" placeholder="Product Price" style="border: 1px solid rgba(34, 152, 203, 1);" class="price">
+            <input type="file" accept=".png,.jpg,.jpeg" src="" alt="" placeholder="Input Image" style="border: 1px solid rgba(34, 152, 203, 1);" class="image">
+            <button class="button" type="submit" id="btn">Upload Product</button>
+        </form>
+    </div>
+    <script src="./uploadProduct.js"></script>
+</body>
+<footer>
+    <img src="./Images/logo.png" alt="logo">
+    <div class="socials">
+        <img src="./Images/ic_baseline-facebook.png" alt="facebook">
+        <img src="./Images/mdi_twitter.png" alt="twitter">
+        <img src="./Images/mdi_youtube.png" alt="Youtube">
+    </div>
+    <p style="font-style: italic; font-size: 10px; color: rgba(0, 0, 0, 0.7);">Copyright © 2023 Shoppie. All rights reserved</p>
+    </footer>
+    
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Shoppie: Your Products</title>
+</head>
+<header>
+    <div class="nav">
+            <img src="./Images/logo.png" alt="logo">
+
+                <input id="searchInput" type="text" placeholder="Search any product" onkeyup="myFunction()" style="background-color: rgba(34, 152, 203, 0.2);">
+
+            <h4>Shop</h4>
+            <a href="./cart.html">
+                <img src="./Images/mdi_cart.png" alt="cart" >
+            </a>
+            <a href="./userProfile.html">
+                <button class="button">Profile</button>
+            </a>
+            
+
+            <a href="./login.html">
+                <button class="button">Log Out</button>
+            </a
+
+        </div>
+</header>
+
+<body>
+    <div id="toast" class="toast" style="display: none;">
+        <div id="toast-text" class="toast-text"></div>
+        <!-- <div id="loader" class="loader"></div> -->
+    </div>
+    <div class="products">
+        
+        <h2 style="color: rgba(34, 152, 203, 1);">Your Products</h2>
+        <div class="actual-products" id="actual-products">
+
+        </div>
+    </div>
+    <script src="./yourProducts.js" defer></script>
+</body>
+
+</html>

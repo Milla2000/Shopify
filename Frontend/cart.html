@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Shoppie: Your Cart</title>
+</head>
+
+<body>
+    <div id="toast" class="toast" style="display: none;">
+        <div id="toast-text" class="toast-text"></div>
+        <!-- <div id="loader" class="loader"></div> -->
+    </div>
+    <header>
+        <div class="nav">
+
+            <a href="./yourProducts.html">
+                <img src="./Images/logo.png" alt="logo">
+            </a>
+            
+            <input type="text" placeholder="Search any product" style="background-color: rgba(34, 152, 203, 0.2);">
+            <h4>Shop</h4>
+            <a href="./cart.html">
+                <img src="./Images/mdi_cart.png" alt="cart">
+            </a>
+            <button class="button">Register</button>
+        </div>
+    </header>
+    <h2 style="color: rgba(34, 152, 203, 1);">Your Cart</h2>
+<div class="cart">
+    <table class="cart-table">
+        <thead>
+            <tr>
+               
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Table rows will be populated by JavaScript -->
+        </tbody>
+    </table>
+</div>
+    <p id="total-price" style="text-align: center; margin-top: 8px;">Total Price: Ksh 0.00</p>
+    <button id="checkout-button" style="display: block; margin-left: 45%; margin-top: 10px;">Checkout</button>
+
+    <script src="./cart.js" defer></script>
+    
+
+    <footer>
+        <img src="./Images/logo.png" alt="logo">
+        <div class="socials">
+            <img src="./Images/ic_baseline-facebook.png" alt="facebook">
+            <img src="./Images/mdi_twitter.png" alt="twitter">
+            <img src="./Images/mdi_youtube.png" alt="Youtube">
+        </div>
+        <p style="font-style: italic; font-size: 10px; color: rgba(0, 0, 0, 0.7);">Copyright © 2023 Shoppie. All rights
+            reserved</p>
+    </footer>
+</body>
+
+</html>
