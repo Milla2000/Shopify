@@ -23,9 +23,10 @@ function cart() {
     })
         .then(response => response.json())
         .then(data => {
+            console.log(data);
             
             let totalPrice = 0;
-            const tableBody = document.querySelector('.cart-table');
+            const tableBody = document.querySelector('.cart-table tbody');
 
             // Clear existing table rows
             tableBody.innerHTML = "";
@@ -33,7 +34,7 @@ function cart() {
             // Populate the table with cart items
             data.cartItems.forEach(item => {
                 const row = document.createElement("tr");
-                row.innerHTML = `
+                row.innerHTML = ` 
                 <td>${item.product_name}</td>
                 <td>Ksh ${item.price}</td>
                 <td>
@@ -161,14 +162,14 @@ checkoutButton.addEventListener("click", async () => {
                     alert(checkoutData.error);
                 }
             } catch (error) {
-                console.error("Error during checkout:", error);
+                // console.error("Error during checkout:", error);
                 alert("An error occurred during checkout.");
             }
         });
 
         document.body.appendChild(modal);
     } catch (error) {
-        console.error("Error preparing confirmation:", error);
+        // console.error("Error preparing confirmation:", error);
         alert("An error occurred while preparing confirmation.");
     }
 });

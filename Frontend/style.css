@@ -106,6 +106,33 @@
 
 
 
+
+/* Style for the table */
+.cart-table {
+  width: 80%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+}
+
+/* Style for table header cells */
+.cart-table th {
+  padding: 8px;
+  text-align: left;
+  background-color: #f2f2f2;
+}
+
+/* Style for table data cells */
+.cart-table td {
+    
+  padding: 8px;
+  text-align: left;
+  vertical-align: middle; /* Align content vertically in the middle */
+  border-top: 1px solid #ddd;
+}
+
+
+
+
 form{
     display: flex;
     flex-direction: column;
@@ -154,6 +181,22 @@ header{
     color: rgba(255, 255, 255, 1);
     border: rgba(34, 152, 203, 1);
 }
+
+#checkout-button{
+    border-radius: 1vh;
+    height: 5vh;
+    width: 10vw;
+    background-color: rgba(34, 152, 203, 1);
+    color: rgba(255, 255, 255, 1);
+    border: rgba(34, 152, 203, 1);
+}
+
+#checkout-button:hover{
+    background-color: rgba(34, 152, 203, 0.6);
+    color: black;
+}
+
+
 .top-display{
     /* margin-top: 10vh; */
     display: flex;
@@ -306,7 +349,7 @@ h2{
     }
     
     .master{
-        margin-top: 15vh;
+        margin-top: 3vh;
         margin-left: 7vh;
         margin-right: 7vh;
     }
