@@ -42,4 +42,4 @@ SELECT * FROM usersTable;
 
 UPDATE usersTable
 SET role = 'admin'
-WHERE id = 'cda82a8b-ae1e-4d94-ad13-444e3c0fb55d';
+WHERE id = 'cee3caa2-d175-4d69-8749-968089b1f552';

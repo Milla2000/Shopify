@@ -1,0 +1,47 @@
+Shoppie Website
+Welcome to the Shoppie website! This website serves as an admin panel for managing products and users. It provides functionality for uploading products, viewing all products, and managing user data.
+It also enables users to search for products, add/remove from cart, checkout and view the shop. The website is designed to work on various screen sizes.
+
+Table of Contents
+Introduction
+Features
+Getting Started
+Usage
+Contributing
+License
+Features
+![Home image](./images/Screenshot (38).png)
+![Home image](./images/Screenshot (39).png)
+
+Upload Product: Add new products to the inventory with images, names, and prices.
+All Products: View a list of all products with details and actions to edit or remove them.
+All Users: Access a section for managing user data.
+Responsive Design: The website is designed to work on various screen sizes.
+Getting Started
+To get started with the Shoppie website, follow these steps:
+
+Clone the Repository: Clone this repository to your local machine using the following command:
+
+bash
+Copy code
+git clone https://github.com/Milla2000/Shopify.git
+Open the Website: Open the index.html file in your preferred web browser to access the website.
+
+Usage
+Navigation: The top navigation bar allows you to search for products, view the shop, and access the admin panel.
+Admin Panel: In the admin panel, you can upload products, view all products, and manage user data.
+Product Management: You can upload new products with images, names, and prices. The "All Products" section lists all products with options to edit or remove them.
+User Management: The "All Users" section provides access to user-related data.
+Footer: The footer contains social media links and copyright information.
+Contributing
+Contributions to the Shoppie website are welcome! If you find any issues or have ideas for improvements, feel free to open an issue or submit a pull request.
+
+Fork the repository.
+Create a new branch: git checkout -b feature/your-feature-name.
+Make your changes and commit them: git commit -m "Add your message here".
+Push to the branch: git push origin feature/your-feature-name.
+Open a pull request.
+License
+This project is licensed under the MIT License. Feel free to use and modify the code according to your needs.
+
+Thank you for using the Shoppie website! If you have any questions or need assistance, please don't hesitate to contact us.
