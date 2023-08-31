@@ -135,7 +135,7 @@ describe("Employee login tests", () => {
 
         expect(res.status).toHaveBeenCalledWith(404);
         expect(res.json).toHaveBeenCalledWith({
-            message: "Email does not exist",
+            message: "Email does not exist in the system, Please use a valid email address",
         });
     });
 
