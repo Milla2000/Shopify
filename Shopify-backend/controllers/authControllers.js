@@ -69,6 +69,7 @@ const userLogin = async (req, res) => {
     }
 
     const pool = await mssql.connect(sqlConfig);
+    
 
     const user = (
       await pool
