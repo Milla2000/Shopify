@@ -32,6 +32,7 @@ describe("Register an Employee", () => {
         const mockedRequest = {
             input: mockedInput,
             execute: mockedExecute,
+            
         };
         const mockedPool = {
             request: jest.fn().mockReturnValue(mockedRequest),
