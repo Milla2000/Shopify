@@ -2,10 +2,6 @@
 # Build a general Node.js project with npm.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
-
-trigger:
-  - master
-
 pool:
   vmImage: ubuntu-latest
 
@@ -16,7 +12,8 @@ steps:
     displayName: "Install Node.js"
 
   - script: |
+      cd Shopify-backend  # Move into the Shopify-backend directory
       npm install
       npm run test
     displayName: "npm run test"
-    workingDirectory: 'Shopify-backend'
+
