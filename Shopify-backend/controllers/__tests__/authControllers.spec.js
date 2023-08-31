@@ -1,7 +1,7 @@
 import bcrypt from "bcrypt";
 import mssql from "mssql";
 import jwt from "jsonwebtoken";
-import { registerUser, userLogin } from "./authControllers";
+import { registerUser, userLogin } from "../authControllers";
 
 jest.mock("bcrypt");
 jest.mock("jsonwebtoken");

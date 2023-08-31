@@ -5,7 +5,7 @@ import {
     softDeleteUser,
     updateUser,
     viewCartItemsForAdmin
-} from "./userController" 
+} from "../userController" 
 
 // jest.mock('mssql');
 

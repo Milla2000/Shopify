@@ -8,7 +8,7 @@ import {
     updateProduct,
     deleteProduct
 
-} from "./productControllers";
+} from "../productControllers";
 
 const res = {
     json: jest.fn(),

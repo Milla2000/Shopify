@@ -6,7 +6,7 @@ import {
     getCartItems,
     checkout,
     removeFromCart,
-} from "./cartControllers";
+} from "../cartControllers";
 
 
 const req = {
