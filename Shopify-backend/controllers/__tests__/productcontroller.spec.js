@@ -1,7 +1,6 @@
 // import bcrypt from "bcrypt";
 import mssql from "mssql";
 
-
 import {
     createNewProduct,
     viewOneProduct,
@@ -10,6 +9,8 @@ import {
     deleteProduct
 
 } from "../productControllers";
+
+jest.mock('mssql');
 
 const res = {
     json: jest.fn(),
@@ -32,15 +33,22 @@ describe('Product Controller Tests', () => {
                 num_items: 100
             }
         };
+        
 
-        const pool = jest.spyOn(mssql, 'connect').mockResolvedValueOnce({
-            connected: true,
-            request: jest.fn().mockReturnThis(),
-            input: jest.fn().mockReturnThis(),
-            execute: jest.fn().mockResolvedValueOnce({
-                rowsAffected: [1]
-            })
+        const mockExecute = jest.fn().mockResolvedValueOnce({
+            rowsAffected: [1]
         });
+
+        const mockRequest = {
+            input: jest.fn().mockReturnThis(),
+            execute: mockExecute,
+        };
+
+        const mockPool = {
+            request: jest.fn().mockReturnValue(mockRequest),
+        };
+
+        mssql.connect.mockResolvedValueOnce(mockPool);
 
         await createNewProduct(req, res);
 
@@ -48,8 +56,13 @@ describe('Product Controller Tests', () => {
             message: 'Product created successfully'
         });
 
-        res.json.mockRestore();
+        // Assert that mssql.connect and related functions were called as expected
+    
+        expect(mockPool.request).toHaveBeenCalled();
+        // expect(mockRequest.input).toHaveBeenCalledTimes(7);
+        expect(mockRequest.execute).toHaveBeenCalledWith('createProductProc');
     });
+
 
 
     it('should return an error message when product creation fails', async () => {

@@ -13,7 +13,7 @@ dotenv.config();
 const registerUser = async (req, res) => {
   try {
 
-    createUsersTable()
+    // createUsersTable()
     const id = v4();
 
     const { username, email, password, phone_number } = req.body;
@@ -69,7 +69,7 @@ const userLogin = async (req, res) => {
     }
 
     const pool = await mssql.connect(sqlConfig);
-    
+
 
     const user = (
       await pool

@@ -6,7 +6,7 @@ const { createProductsTable } = require('../Database/Tables/createTables');
 
 const createNewProduct = async (req, res) => {
   try {
-    createProductsTable()
+   
     const id = v4();
     // const currentTime = new Date();
     const { name, description, price, category, image, num_items } = req.body;
