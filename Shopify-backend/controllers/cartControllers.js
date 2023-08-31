@@ -39,7 +39,7 @@ const addToCart = async (req, res) => {
         if (existingCart.recordset.length === 0) {
             // Create a new cart if it doesn't exist
             cart_id = v4(); 
-            console.log(cart_id);
+            
             await pool.request()
                 .input("cart_id", mssql.VarChar, cart_id)
                 .input("user_id", mssql.VarChar, user_id)
@@ -91,7 +91,7 @@ const getCartItems = async (req, res) => {
     try {
         
         const userId = req.params.userId; 
-        console.log("userId:", userId);
+        
         const pool = await mssql.connect(sqlConfig);
        
         const cartItems = await pool
@@ -102,7 +102,7 @@ const getCartItems = async (req, res) => {
         res.json({
             cartItems: cartItems.recordset
         });
-        // console.log(cartItems.recordset);
+        
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
@@ -124,7 +124,7 @@ const checkout = async (req, res) => {
         }
 
         const cart_id = cartCheck.recordset[0].id;
-        // console.log(cart_id);
+       
         // Calculate total price of items in the user's cart
         const totalPriceResult = await pool.request()
             .input("cart_id", mssql.VarChar, cart_id)
@@ -138,7 +138,7 @@ const checkout = async (req, res) => {
             .query("SELECT COUNT(*) AS item_count FROM cartItemsTable WHERE cart_id = @cart_id");
 
         const item_count = cartItemsCheck.recordset[0].item_count;
-        console.log(item_count);
+        
         if (item_count === 0) {
             return res.status(400).json("You have no products in your cart, Kindly add products to your cart to make a purchase");
         }
@@ -149,7 +149,7 @@ const checkout = async (req, res) => {
             .query("SELECT TOP 1 product_name FROM cartItemsTable WHERE cart_id = @cart_id");
 
         const product_name = productNameResult.recordset[0].product_name;
-        console.log(product_name);
+        
 
         // Update num_items in productsTable and remove items from cartItemsTable
         await pool.request()

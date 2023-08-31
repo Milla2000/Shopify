@@ -22,7 +22,7 @@ const createNewProduct = async (req, res) => {
       .input("image", mssql.VarChar, image)
       .input("num_items", mssql.Int, num_items)
       .execute("createProductProc");
-   console.log(result);
+
     if (result.rowsAffected[0] === 1) {
       return res.json({
         message: "Product created successfully",
@@ -102,7 +102,7 @@ const updateProduct = async (req, res) => {
       .input("num_items", mssql.Int, num_items)
       .execute("updateProductProc");
 
-    console.log(result);
+   
 
     if (result.rowsAffected[0] === 1) {
       res.json({
