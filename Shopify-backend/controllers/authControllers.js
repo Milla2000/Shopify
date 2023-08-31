@@ -82,9 +82,9 @@ const userLogin = async (req, res) => {
     }
     
     // Check if the account is deactivated (soft deleted)
-    if (user.deleted_at !== null) {
-      return res.status(403).json({ message: "Account is deactivated" });
-    }
+    // if (user.deleted_at !== null) {
+    //   return res.status(403).json({ message: "Account is deactivated" });
+    // }
  
     const comparePwd = await bcrypt.compare(password, user.password);
 
